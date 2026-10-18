@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SkyPixel — Capturing Life's Moments</title>
 <meta name="description" content="SkyPixel turns memories into timeless visual masterpieces. Event, portrait and project photography.">
-<script>(function(){try{var t=localStorage.getItem('skypixel-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+<script>(function(){try{var t=localStorage.getItem('skypixel-theme');if(!t)t='dark';document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
 <style>
   :root{
     --bg:#f2f2f2;
@@ -112,8 +112,14 @@
   .avatars i{display:inline-block;width:32px;height:32px;border-radius:50%;background:#b9b9b9;border:2px solid var(--lime);margin-right:-18px}
   .avatars span{margin-left:22px}
   .strip ul{display:flex;gap:36px;list-style:none;font-size:14px}
-  .strip button{opacity:.7}
-  .strip button:hover,.strip button.on{opacity:1;text-decoration:underline}
+  .strip ul a{opacity:.7}
+  .strip ul a:hover,.strip ul li:first-child a{opacity:1}
+  .strip ul a:hover{text-decoration:underline}
+  .stats{display:flex;align-items:center;gap:clamp(20px,3vw,48px);flex-wrap:wrap}
+  .avatars i:last-child{margin-right:0}
+  .stat{display:flex;flex-direction:column;gap:6px}
+  .stat strong{font-size:clamp(30px,2.8vw,48px);font-weight:500;letter-spacing:-.02em;line-height:1}
+  .stat span{font-size:13px;font-weight:500}
 
   /* about */
   .about h2{max-width:1300px;font-size:clamp(26px,2.6vw,48px);margin-bottom:60px}
@@ -140,6 +146,7 @@
   .work-item .cap{position:absolute;left:18px;bottom:18px;right:18px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;background:var(--cap);border-radius:16px;padding:14px 16px}
   .work-item .cap b{display:block;font-size:clamp(18px,1.5vw,24px);font-weight:500;letter-spacing:-.02em;line-height:1.15;color:var(--ink);margin-bottom:4px}
   .work-item .cap small{display:block;color:var(--text2);font-size:13px;line-height:1.4}
+  .work-item .cap .round svg{width:16px;height:16px;opacity:1}
   .work-item:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
   .work-item:hover .cap .round{background:var(--lime);color:#111}
   .work-item .tag{position:absolute;top:18px;left:18px;background:var(--surface);border-radius:999px;font-size:12px;padding:5px 12px}
@@ -154,7 +161,7 @@
   .svc .chips{display:flex;flex-wrap:wrap;gap:8px}
   .svc-imgs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px}
   .svc-imgs .ph{height:300px}
-  .svc-item{margin-bottom:16px}
+  .svc-item{margin-bottom:16px;scroll-margin-top:96px}
   .svc-item.hidden{display:none}
   .svc-gallery{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s ease}
   .svc-item.open .svc-gallery{grid-template-rows:1fr}
@@ -205,9 +212,10 @@
   /* insights */
   .ins-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
   .ins-grid .ph{height:230px;margin-bottom:18px;border-radius:16px}
+  .ins-card{display:block;cursor:pointer}
+  .ins-card:focus-visible{outline:2px solid var(--ink);outline-offset:4px;border-radius:16px}
   .ins-grid h3{font-size:22px;font-weight:500;margin-bottom:10px}
   .ins-grid p{font-size:14px;color:var(--muted)}
-  .ins-grid a:hover h3{text-decoration:underline}
 
   /* pricing */
   .center{text-align:center}
@@ -307,7 +315,7 @@
         <a href="#about">About Us</a>
         <a href="#work">Work</a>
         <a href="#services">Service</a>
-        <a href="#faq">Contact Us</a>
+        <a href="#pricing">Plans</a>
       </div>
       <div class="nav-actions">
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark mode" title="Light / Dark"><svg class="i-moon"><use href="#moon"/></svg><svg class="i-sun"><use href="#sun"/></svg></button>
@@ -336,13 +344,16 @@
         <div class="ph hero-main"><svg><use href="#img"/></svg></div>
       </div>
       <div class="strip">
-        <div class="avatars"><i></i><i></i><i></i><span>32k people happy with<br>our service</span></div>
+        <div class="stats">
+          <div class="avatars"><i></i><i></i><i></i></div>
+          <div class="stat"><strong>32k</strong><span>people happy with</span></div>
+          <div class="stat"><strong>120k+</strong><span>photos and videos delivered</span></div>
+        </div>
         <ul id="filters">
-          <li><button class="on" data-f="all">All</button></li>
-          <li><button data-f="Landscape">Landscape</button></li>
-          <li><button data-f="Portrait">Portrait</button></li>
-          <li><button data-f="Project">Project</button></li>
-          <li><button data-f="Event">Event</button></li>
+          <li><a href="#services">All</a></li>
+          <li><a href="#service-event">Event</a></li>
+          <li><a href="#service-portrait">Portrait</a></li>
+          <li><a href="#service-project">Project</a></li>
         </ul>
       </div>
     </div>
@@ -445,7 +456,7 @@
         </div>
       </div>
 
-      <div class="svc-item" data-text="event photography wedding birthday corporate">
+      <div class="svc-item" id="service-event" data-text="event photography wedding birthday corporate">
         <div class="svc">
           <h3>Event Photography</h3>
           <div>
@@ -472,7 +483,7 @@
           </div>
         </div>
       </div>
-      <div class="svc-item" data-text="portrait photography individuals families business professionals">
+      <div class="svc-item" id="service-portrait" data-text="portrait photography individuals families business professionals">
         <div class="svc">
           <h3>Portrait Photography</h3>
           <div>
@@ -499,7 +510,7 @@
           </div>
         </div>
       </div>
-      <div class="svc-item" data-text="project photography product brand commercial">
+      <div class="svc-item" id="service-project" data-text="project photography product brand commercial">
         <div class="svc">
           <h3>Project Photography</h3>
           <div>
@@ -585,9 +596,9 @@
         <a href="#" class="btn btn-light">Explore More <span class="round" style="width:28px;height:28px"><svg width="14" height="14"><use href="#arrow"/></svg></span></a>
       </div>
       <div class="ins-grid">
-        <a href="#"><div class="ph"><svg><use href="#img"/></svg></div><h3>The Power of Storytelling Through the Lens</h3><p>We believe that every photograph tells a story, and the true art of photography lies in capturing the essence of that story.</p></a>
-        <a href="#"><div class="ph"><svg><use href="#img"/></svg></div><h3>The Rise of Minimalist Photography: A Timeless Trend</h3><p>Minimalism in photography is gaining traction, becoming a staple in both personal and commercial projects.</p></a>
-        <a href="#"><div class="ph"><svg><use href="#img"/></svg></div><h3>The Importance of Storytelling in Portrait Photography</h3><p>Portrait photography is no longer just about capturing faces — it’s about telling stories.</p></a>
+        <a href="#" class="ins-card"><div class="ph"><svg><use href="#img"/></svg></div><h3>The Power of Storytelling Through the Lens</h3><p>We believe that every photograph tells a story, and the true art of photography lies in capturing the essence of that story.</p></a>
+        <a href="#" class="ins-card"><div class="ph"><svg><use href="#img"/></svg></div><h3>The Rise of Minimalist Photography: A Timeless Trend</h3><p>Minimalism in photography is gaining traction, becoming a staple in both personal and commercial projects.</p></a>
+        <a href="#" class="ins-card"><div class="ph"><svg><use href="#img"/></svg></div><h3>The Importance of Storytelling in Portrait Photography</h3><p>Portrait photography is no longer just about capturing faces — it’s about telling stories.</p></a>
       </div>
     </div>
   </section>
@@ -735,16 +746,6 @@
   document.getElementById('burger').addEventListener('click', () => menu.classList.toggle('open'));
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
 
-  // work filters
-  const filterBtns = document.querySelectorAll('#filters button');
-  const items = document.querySelectorAll('#workGrid .work-item');
-  filterBtns.forEach(btn => btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('on'));
-    btn.classList.add('on');
-    const f = btn.dataset.f;
-    items.forEach(i => { i.style.display = (f === 'all' || i.dataset.cat === f) ? '' : 'none'; });
-  }));
-
   // service search
   const search = document.getElementById('svcSearch');
   const svcs = document.querySelectorAll('.svc-item');
@@ -800,13 +801,19 @@
   let mList = [], mIdx = 0, lastFocus = null;
   function fillModal(){
     const it = mList[mIdx];
-    mTag.textContent = it.querySelector('.tag').textContent;
-    mTitle.textContent = it.querySelector('.cap b').textContent;
-    mDesc.textContent = it.querySelector('.cap small').textContent;
+    if (it.classList.contains('ins-card')) {
+      mTag.textContent = 'SkyPixel Insight';
+      mTitle.textContent = it.querySelector('h3').textContent;
+      mDesc.textContent = it.querySelector('p').textContent;
+    } else {
+      mTag.textContent = it.querySelector('.tag').textContent;
+      mTitle.textContent = it.querySelector('.cap b').textContent;
+      mDesc.textContent = it.querySelector('.cap small').textContent;
+    }
     mCount.textContent = String(mIdx + 1).padStart(2, '0') + ' / ' + String(mList.length).padStart(2, '0');
   }
   function openModal(it, track){
-    mList = [...track.querySelectorAll('.work-item')].filter(x => x.style.display !== 'none');
+    mList = [...track.querySelectorAll('.work-item, .ins-card')].filter(x => x.style.display !== 'none');
     mIdx = Math.max(0, mList.indexOf(it));
     fillModal();
     lastFocus = document.activeElement;
@@ -878,8 +885,15 @@
     updateBar();
   }
   document.querySelectorAll('.work-grid').forEach(initCarousel);
-  const workTrack = document.getElementById('workGrid');
-  filterBtns.forEach(b => b.addEventListener('click', () => { workTrack.scrollLeft = 0; setTimeout(workTrack.updateBar, 50); }));
+
+  // insight cards open the same modal
+  const insGrid = document.querySelector('.ins-grid');
+  insGrid.addEventListener('click', e => {
+    const c = e.target.closest('.ins-card');
+    if (!c) return;
+    e.preventDefault();
+    openModal(c, insGrid);
+  });
 
   // services: only one gallery open at a time
   const svcItems = document.querySelectorAll('.svc-item');
@@ -895,6 +909,18 @@
     const willOpen = !it.classList.contains('open');
     svcItems.forEach(o => { if (o !== it) setSvc(o, false); });
     setSvc(it, willOpen);
+  }));
+
+  // stats filters: jump to the service and open its gallery
+  document.querySelectorAll('#filters a').forEach(a => a.addEventListener('click', () => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (!t || !t.classList.contains('svc-item')) return;
+    if (search.value) { search.value = ''; search.dispatchEvent(new Event('input')); }
+    svcItems.forEach(o => { if (o !== t) setSvc(o, false); });
+    setSvc(t, true);
+    setTimeout(() => {
+      if (Math.abs(t.getBoundingClientRect().top - 96) > 6) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 500);
   }));
 
   // FAQ accordion
