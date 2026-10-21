@@ -346,12 +346,40 @@
           <p>Filmagens e fotos com drone em 4K para eventos, imóveis, obras e marcas. Planejamos, voamos e entregamos tudo editado, com piloto habilitado e equipamento segurado.</p>
           <a href="#subscribe" class="btn btn-dark">Peça seu orçamento <svg width="16" height="16"><use href="#arrow"/></svg></a>
           <div class="hero-thumbs">
-            <div class="ph"><svg><use href="#img"/></svg><img data-photo="0" data-remote="https://images.pexels.com/photos/7204540/pexels-photo-7204540.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="" decoding="async"></div>
-            <div class="ph"><svg><use href="#img"/></svg><img data-photo="1" data-remote="https://images.pexels.com/photos/2929211/pexels-photo-2929211.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="" decoding="async"></div>
-            <div class="ph"><svg><use href="#img"/></svg><img data-photo="2" data-remote="https://images.pexels.com/photos/732547/pexels-photo-732547.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="" decoding="async"></div>
+            <div class="ph"><svg><use href="#img"/></svg><img data-photo="0" data-remote="productions/dji_fly_20251226_174046_393_1766781654015_photo_optimized.jpg" alt="" decoding="async"></div>
+            <div class="ph"><svg><use href="#img"/></svg><img data-photo="1" data-remote="productions/Captura%20de%20tela%202025-06-29%20192507.jpg" alt="" decoding="async"></div>
+            <div class="ph"><svg><use href="#img"/></svg><img data-photo="2" data-remote="productions/Screenshot_20250821-204105_Gallery.jpg" alt="" decoding="async"></div>
           </div>
         </div>
-        <div class="ph hero-main"><svg><use href="#img"/></svg><img data-photo="3" data-remote="https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" alt="" decoding="async"></div>
+        <div class="ph hero-main"><video id="heroVideo" src="productions/Lagoa.mp4" playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></video><button type="button" id="heroSound" class="btn btn-light" aria-pressed="false" style="position:absolute;right:16px;bottom:16px;cursor:pointer;z-index:2;padding-right:12px"><span class="lbl">Ativar som</span> <span class="round" style="width:28px;height:28px"><svg class="off" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;opacity:1"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg><svg class="on" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;opacity:1;display:none"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg></span></button></div>
+        <script>
+        (function(){
+          var v=document.getElementById('heroVideo'),b=document.getElementById('heroSound');
+          function ui(){
+            b.setAttribute('aria-pressed',String(!v.muted));
+            b.querySelector('.lbl').textContent=v.muted?'Ativar som':'Desativar som';
+            b.querySelector('.on').style.display=v.muted?'none':'';
+            b.querySelector('.off').style.display=v.muted?'':'none';
+          }
+          function unmuteOnFirstGesture(){
+            function go(e){
+              if(b.contains(e.target))return;
+              ['pointerdown','pointerup','click','touchend','keydown'].forEach(function(t){document.removeEventListener(t,go,true)});
+              if(!finished&&!userMuted){v.muted=false;ui()}
+            }
+            ['pointerdown','pointerup','click','touchend','keydown'].forEach(function(e){document.addEventListener(e,go,true)});
+          }
+          var userMuted=false,finished=false;
+          b.addEventListener('click',function(e){e.stopPropagation();userMuted=!v.muted;v.muted=!v.muted;ui();if(v.paused)v.play().catch(function(){})});
+          // Ao terminar, silencia e reinicia o vídeo em loop, mudo
+          v.addEventListener('ended',function(){finished=true;v.muted=true;ui();v.currentTime=0;v.play().catch(function(){})});
+          v.muted=false;
+          v.play().then(ui).catch(function(){
+            // O navegador bloqueou o áudio automático: toca mudo e ativa o som no primeiro gesto
+            v.muted=true;ui();v.play().catch(function(){});unmuteOnFirstGesture();
+          });
+        })();
+        </script>
       </div>
       <div class="strip">
         <div class="stats">
@@ -380,7 +408,7 @@
       <h2 style="margin-top:16px">De comemorações a obras e campanhas de marca, unimos técnica, criatividade e segurança para entregar imagens aéreas que emocionam e valorizam o que você construiu.</h2>
       <div class="about-slider" id="aboutSlider">
         <div class="about-slide on">
-          <div class="about-card"><svg width="44" height="44" style="color:#777;opacity:.7"><use href="#img"/></svg><img data-photo="4" data-remote="https://images.pexels.com/photos/3049429/pexels-photo-3049429.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="" loading="lazy" decoding="async"></div>
+          <div class="about-card"><svg width="44" height="44" style="color:#777;opacity:.7"><use href="#img"/></svg><img data-photo="4" data-remote="productions/dji_fly_20251227_173008_412_1766867565932_photo_optimized.jpg" alt="" loading="lazy" decoding="async"></div>
           <div class="about-right">
             <div class="about-text">
               <p>Guiados por criatividade, precisão e paixão por voar, transformamos lugares e momentos em imagens que ficam. Cada voo é planejado para mostrar o que só o céu revela.</p>
@@ -392,11 +420,11 @@
                 <span class="about-count">01 / 03</span>
               </div>
             </div>
-            <div class="ph about-side"><svg><use href="#img"/></svg><img data-photo="5" data-remote="https://images.pexels.com/photos/19779565/pexels-photo-19779565.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="" loading="lazy" decoding="async"></div>
+            <div class="ph about-side"><svg><use href="#img"/></svg><img data-photo="5" data-remote="productions/dji_fly_20260711_172150_11_1783801541235_photo_optimized.jpg" alt="" loading="lazy" decoding="async"></div>
           </div>
         </div>
         <div class="about-slide">
-          <div class="about-card"><svg width="44" height="44" style="color:#777;opacity:.7"><use href="#img"/></svg><img data-photo="6" data-remote="https://images.pexels.com/photos/38772198/pexels-photo-38772198.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="" loading="lazy" decoding="async"></div>
+          <div class="about-card"><svg width="44" height="44" style="color:#777;opacity:.7"><use href="#img"/></svg><img data-photo="6" data-remote="productions/dji_fly_20260711_172150_11_1783801541235_photo_optimized.jpg" alt="" loading="lazy" decoding="async"></div>
           <div class="about-right">
             <div class="about-text">
               <p>Todo projeto começa com uma conversa. Ouvimos sua ideia, visitamos o local, estudamos a luz e o clima e criamos um plano de voo que combina com a sua história.</p>
@@ -408,11 +436,11 @@
                 <span class="about-count">02 / 03</span>
               </div>
             </div>
-            <div class="ph about-side"><svg><use href="#img"/></svg><img data-photo="7" data-remote="https://images.pexels.com/photos/18714092/pexels-photo-18714092.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="" loading="lazy" decoding="async"></div>
+            <div class="ph about-side"><svg><use href="#img"/></svg><img data-photo="7" data-remote="productions/Screenshot_20260906-213818_Gallery%20(3).jpg" alt="" loading="lazy" decoding="async"></div>
           </div>
         </div>
         <div class="about-slide">
-          <div class="about-card"><svg width="44" height="44" style="color:#777;opacity:.7"><use href="#img"/></svg><img data-photo="8" data-remote="https://images.pexels.com/photos/2550489/pexels-photo-2550489.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="" loading="lazy" decoding="async"></div>
+          <div class="about-card"><svg width="44" height="44" style="color:#777;opacity:.7"><use href="#img"/></svg><img data-photo="8" data-remote="productions/Screenshot_20260906-213818_Gallery%20(3).jpg" alt="" loading="lazy" decoding="async"></div>
           <div class="about-right">
             <div class="about-text">
               <p>Do primeiro voo à galeria final, cuidamos de cada detalhe: operação segura, cor tratada e edição cuidadosa, para que cada imagem carregue a emoção do momento.</p>
@@ -424,7 +452,7 @@
                 <span class="about-count">03 / 03</span>
               </div>
             </div>
-            <div class="ph about-side"><svg><use href="#img"/></svg><img data-photo="9" data-remote="https://images.pexels.com/photos/4390125/pexels-photo-4390125.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="" loading="lazy" decoding="async"></div>
+            <div class="ph about-side"><svg><use href="#img"/></svg><img data-photo="9" data-remote="productions/dji_fly_20251227_173008_412_1766867565932_photo_optimized.jpg" alt="" loading="lazy" decoding="async"></div>
           </div>
         </div>
       </div>
@@ -446,11 +474,11 @@
           <div class="cap"><div><b>Vale Dourado</b><small>a primeira luz abrindo o horizonte.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
         <article class="ph work-item" data-cat="Eventos"><span class="tag">Filmagem de Eventos</span><svg><use href="#img"/></svg><img data-photo="12" data-remote="https://images.pexels.com/photos/16037676/pexels-photo-16037676.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="" loading="lazy" decoding="async">
           <div class="cap"><div><b>Celebração na Praia</b><small>risadas e música em um só plano.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
-        <article class="ph work-item" data-cat="Projetos"><span class="tag">Obras e Projetos</span><svg><use href="#img"/></svg><img data-photo="0" data-remote="https://images.pexels.com/photos/7204540/pexels-photo-7204540.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="" loading="lazy" decoding="async">
+        <article class="ph work-item" data-cat="Projetos"><span class="tag">Obras e Projetos</span><svg><use href="#img"/></svg><img data-photo="0" data-remote="productions/dji_fly_20251226_174046_393_1766781654015_photo_optimized.jpg" alt="" loading="lazy" decoding="async">
           <div class="cap"><div><b>Obra em Andamento</b><small>o avanço do projeto, registrado de ponta a ponta.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
-        <article class="ph work-item" data-cat="Paisagem"><span class="tag">Paisagem Aérea</span><svg><use href="#img"/></svg><img data-photo="1" data-remote="https://images.pexels.com/photos/2929211/pexels-photo-2929211.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="" loading="lazy" decoding="async">
+        <article class="ph work-item" data-cat="Paisagem"><span class="tag">Paisagem Aérea</span><svg><use href="#img"/></svg><img data-photo="1" data-remote="productions/Captura%20de%20tela%202025-06-29%20192507.jpg" alt="" loading="lazy" decoding="async">
           <div class="cap"><div><b>Costa na Névoa</b><small>ondas calmas sob um céu quieto.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
-        <article class="ph work-item" data-cat="Retratos"><span class="tag">Retrato Aéreo</span><svg><use href="#img"/></svg><img data-photo="2" data-remote="https://images.pexels.com/photos/732547/pexels-photo-732547.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="" loading="lazy" decoding="async">
+        <article class="ph work-item" data-cat="Retratos"><span class="tag">Retrato Aéreo</span><svg><use href="#img"/></svg><img data-photo="2" data-remote="productions/Screenshot_20250821-204105_Gallery.jpg" alt="" loading="lazy" decoding="async">
           <div class="cap"><div><b>Retrato Aéreo em Família</b><small>três gerações, uma tarde, uma vista única.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
       </div>
       <div class="work-progress" aria-hidden="true"><span id="workBar"></span></div>
@@ -563,11 +591,11 @@
         <div class="svc-gallery" id="gal2" inert>
           <div class="svc-gallery-inner">
             <div class="work-grid">
-            <article class="ph work-item"><span class="tag">Mercado Imobiliário</span><svg><use href="#img"/></svg><img data-photo="0" data-remote="https://images.pexels.com/photos/7204540/pexels-photo-7204540.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="" loading="lazy" decoding="async">
+            <article class="ph work-item"><span class="tag">Mercado Imobiliário</span><svg><use href="#img"/></svg><img data-photo="0" data-remote="productions/dji_fly_20251226_174046_393_1766781654015_photo_optimized.jpg" alt="" loading="lazy" decoding="async">
               <div class="cap"><div><b>Lançamento de Loteamento</b><small>terreno, acesso e entorno em um só olhar.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
-            <article class="ph work-item"><span class="tag">Mercado Imobiliário</span><svg><use href="#img"/></svg><img data-photo="1" data-remote="https://images.pexels.com/photos/2929211/pexels-photo-2929211.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="" loading="lazy" decoding="async">
+            <article class="ph work-item"><span class="tag">Mercado Imobiliário</span><svg><use href="#img"/></svg><img data-photo="1" data-remote="productions/Captura%20de%20tela%202025-06-29%20192507.jpg" alt="" loading="lazy" decoding="async">
               <div class="cap"><div><b>Vista Real dos Andares</b><small>a paisagem do morador, mostrada antes da mudança.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
-            <article class="ph work-item"><span class="tag">Mercado Imobiliário</span><svg><use href="#img"/></svg><img data-photo="2" data-remote="https://images.pexels.com/photos/732547/pexels-photo-732547.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="" loading="lazy" decoding="async">
+            <article class="ph work-item"><span class="tag">Mercado Imobiliário</span><svg><use href="#img"/></svg><img data-photo="2" data-remote="productions/Screenshot_20250821-204105_Gallery.jpg" alt="" loading="lazy" decoding="async">
               <div class="cap"><div><b>Condomínio Completo</b><small>a escala do empreendimento em um único plano.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
             <article class="ph work-item"><span class="tag">Mercado Imobiliário</span><svg><use href="#img"/></svg><img data-photo="3" data-remote="https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="" loading="lazy" decoding="async">
               <div class="cap"><div><b>Casa para Locação</b><small>o imóvel valorizado por imagens nítidas.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
@@ -738,7 +766,7 @@
           </ul>
         </div>
         <div class="plan">
-          <div class="plan-top"><div class="price">R$ 120 <small>por hora de trabalho</small></div><span class="chip">Pro</span></div>
+          <div class="plan-top"><div class="price">R$ 129 <small>por hora de trabalho</small></div><span class="chip">Pro</span></div>
           <p class="desc">Para quem quer controle total e um projeto sob medida.</p>
           <div class="plan-btns"><a href="#subscribe" class="btn btn-dark">Quero o Pro</a></div>
           <ul>
