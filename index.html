@@ -151,6 +151,15 @@
   .work-grid::-webkit-scrollbar{display:none}
   .work-grid.dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}
   .work-grid.dragging *{pointer-events:none}
+  .all-grid .work-item{flex:none}
+  .all-box{position:relative;z-index:1;background:var(--surface);color:var(--ink);border-radius:var(--radius);width:min(1180px,100%);max-height:calc(100vh - 48px);overflow:auto;padding:0 28px 28px}
+  .all-head{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:16px;background:var(--surface);padding:24px 0 16px}
+  .all-head h3{font-size:clamp(22px,2.4vw,32px);font-weight:500;letter-spacing:-.02em}
+  .all-head .modal-close{position:static}
+  .all-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .all-grid .work-item{height:300px}
+  @media (max-width:900px){.all-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:600px){.all-grid{grid-template-columns:1fr}.all-box{padding:0 16px 16px}}
   .work-progress{height:4px;border-radius:99px;background:#d4d4d4;margin-top:22px;position:relative;overflow:hidden}
   .work-progress span{position:absolute;top:0;bottom:0;left:0;width:30%;border-radius:99px;background:var(--ink);transition:left .1s linear,width .1s linear}
   .work-item{height:520px;position:relative;flex:0 0 calc((100% - 40px)/2.6);scroll-snap-align:start}
@@ -163,9 +172,6 @@
   .work-item .tag{position:absolute;top:18px;left:18px;background:var(--surface);border-radius:999px;font-size:12px;padding:5px 12px}
 
   /* services */
-  .search{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 8px 6px 18px}
-  .search input{border:0;outline:0;background:none;width:160px;font-size:14px;color:var(--ink)}
-  .search span{font-size:13px;color:var(--muted);white-space:nowrap;padding-right:6px}
   .svc{display:grid;grid-template-columns:200px 1fr auto;gap:32px;align-items:center;background:var(--surface);border-radius:var(--radius);padding:28px 32px}
   .svc h3{font-size:clamp(18px,1.4vw,24px);font-weight:500;letter-spacing:-.02em}
   .svc p{color:var(--muted);font-size:14px;margin-bottom:14px}
@@ -496,23 +502,23 @@
       <span class="pill">Nossos Trabalhos</span>
       <div class="head-row">
         <h2>Onde cada quadro fala<br>e cada detalhe inspira</h2>
-        <a href="#" class="btn btn-light">Ver mais trabalhos <span class="round" style="width:28px;height:28px"><svg width="14" height="14"><use href="#arrow"/></svg></span></a>
+        <button type="button" class="btn btn-light" id="workMore" aria-haspopup="dialog" aria-controls="allModal">Ver mais <span class="round" style="width:28px;height:28px"><svg width="14" height="14"><use href="#arrow"/></svg></span></button>
       </div>
       <div class="work-grid" id="workGrid">
-        <article class="ph work-item" data-cat="Eventos"><span class="tag">Filmagem de Eventos</span><svg><use href="#img"/></svg><img data-photo="10" data-remote="https://images.pexels.com/photos/460621/pexels-photo-460621.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="" loading="lazy" decoding="async">
-          <div class="cap"><div><b>Festival ao Entardecer</b><small>a energia da multidão vista de cima.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
-        <article class="ph work-item" data-cat="Paisagem"><span class="tag">Paisagem Aérea</span><svg><use href="#img"/></svg><img data-photo="11" data-remote="https://images.pexels.com/photos/27459243/pexels-photo-27459243.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="" loading="lazy" decoding="async">
-          <div class="cap"><div><b>Vale Dourado</b><small>a primeira luz abrindo o horizonte.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
-        <article class="ph work-item" data-cat="Eventos"><span class="tag">Filmagem de Eventos</span><svg><use href="#img"/></svg><img data-photo="12" data-remote="https://images.pexels.com/photos/16037676/pexels-photo-16037676.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="" loading="lazy" decoding="async">
-          <div class="cap"><div><b>Celebração na Praia</b><small>risadas e música em um só plano.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
-        <article class="ph work-item" data-cat="Projetos"><span class="tag">Obras e Projetos</span><svg><use href="#img"/></svg><img data-photo="0" data-remote="productions/dji_fly_20251226_174046_393_1766781654015_photo_optimized.jpg" alt="" loading="lazy" decoding="async">
-          <div class="cap"><div><b>Obra em Andamento</b><small>o avanço do projeto, registrado de ponta a ponta.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
-        <article class="ph work-item" data-cat="Paisagem"><span class="tag">Paisagem Aérea</span><svg><use href="#img"/></svg><img data-photo="1" data-remote="productions/Captura%20de%20tela%202025-06-29%20192507.jpg" alt="" loading="lazy" decoding="async">
-          <div class="cap"><div><b>Costa na Névoa</b><small>ondas calmas sob um céu quieto.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
-        <article class="ph work-item" data-cat="Retratos"><span class="tag">Retrato Aéreo</span><svg><use href="#img"/></svg><img data-photo="2" data-remote="productions/Screenshot_20250821-204105_Gallery.jpg" alt="" loading="lazy" decoding="async">
-          <div class="cap"><div><b>Retrato Aéreo em Família</b><small>três gerações, uma tarde, uma vista única.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+        <article class="ph work-item" data-i="0"><span class="tag">Paisagem Aérea</span><svg><use href="#img"/></svg><img data-photo="0" data-remote="productions/Best/Captura%20de%20tela%202025-06-29%20192115.jpg" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Paisagem Aérea</b><small>beleza natural registrada com enquadramento e cor de cinema.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+        <article class="ph work-item" data-i="1"><span class="tag">Mapeamento e Planejamento</span><svg><use href="#img"/></svg><img data-photo="1" data-remote="productions/Best/Captura%20de%20tela%202025-07-09%20092557%20%282%29.jpg" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Visão de Planejamento</b><small>a visão vertical que ajuda a definir usos, acessos e estruturas.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+        <article class="ph work-item" data-i="2"><span class="tag">Natureza e Preservação</span><svg><use href="#img"/></svg><img data-photo="2" data-remote="productions/Best/dji_fly_20260711_172150_11_1783801541235_photo_optimized.jpg" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Natureza e Preservação</b><small>áreas verdes e corpos d'água registrados com precisão.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+        <article class="ph work-item" data-i="14"><span class="tag">Mercado Imobiliário</span><svg><use href="#img"/></svg><img data-photo="0" data-remote="productions/Mercado%20Imobili%C3%A1rio/Captura%20de%20tela%202025-06-29%20192507.jpg" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Casa com Piscina</b><small>telhado solar, deck e piscina valorizados de cima.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+        <article class="ph work-item" data-i="18"><span class="tag">Construção e Engenharia</span><svg><use href="#img"/></svg><img data-photo="0" data-remote="productions/Constru%C3%A7%C3%A3o%20Civil%20e%20Engenharia/Captura%20de%20tela%202026-10-27%20144640.png" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Estrutura em Andamento</b><small>laje, formas e equipe no último pavimento.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+        <article class="ph work-item" data-i="21"><span class="tag">Cobertura Jornalística</span><svg><use href="#img"/></svg><img data-photo="10" data-remote="productions/Cobertura%20Jornal%C3%ADstica/Captura%20de%20tela%202026-10-27%20144439.png" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Avenida e Bairros</b><small>o fluxo da cidade e o entorno em um único plano.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
       </div>
-      <div class="work-progress" aria-hidden="true"><span id="workBar"></span></div>
+      <div class="work-progress" aria-hidden="true"><span></span></div>
     </div>
   </section>
 
@@ -522,11 +528,6 @@
       <span class="pill">Nossos Serviços</span>
       <div class="head-row">
         <h2>Damos vida à sua visão,<br>um voo de cada vez</h2>
-        <div class="search">
-          <input type="search" id="svcSearch" placeholder="Buscar serviço..." aria-label="Buscar serviço">
-          <span>Ver todos</span>
-          <span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span>
-        </div>
       </div>
 
       <div class="svc-item" id="service-event" data-text="eventos e shows registre a grandiosidade dos seus eventos com imagens aereas que contam uma historia. seja um casamento, uma formatura ou um grande show, garantimos que cada momento importante seja eternizado de forma cinematografica. casamentos shows formaturas momentosdoalto casamento ao por do sol festa de aniversario formatura ao ar livre show e festival inauguracao">
@@ -542,11 +543,11 @@
           <div class="svc-gallery-inner">
             <div class="work-grid">
             <article class="ph work-item"><span class="tag">Filmagem de Eventos</span><svg><use href="#img"/></svg><img data-photo="3" data-remote="productions/Eventos%20e%20Shows/dji_fly_20260125_160758_490_1769368449470_photo_optimized.jpg" alt="" loading="lazy" decoding="async">
-              <div class="cap"><div><b>Casamento ao Pôr do Sol</b><small>a cerimônia inteira vista de cima, em luz suave.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+              <div class="cap"><div><b>Show ao Vivo</b><small>o palco, a banda e o público no mesmo quadro.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
             <article class="ph work-item"><span class="tag">Filmagem de Eventos</span><svg><use href="#img"/></svg><img data-photo="4" data-remote="productions/Eventos%20e%20Shows/dji_fly_20260125_160808_491_1769368446496_photo_optimized.jpg" alt="" loading="lazy" decoding="async">
-              <div class="cap"><div><b>Festa de Aniversário</b><small>a comemoração ganhando escala no gramado.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+              <div class="cap"><div><b>Festa de Rua</b><small>a multidão tomando a praça em frente à igreja.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
             <article class="ph work-item"><span class="tag">Filmagem de Eventos</span><svg><use href="#img"/></svg><img data-photo="5" data-remote="productions/Eventos%20e%20Shows/dji_fly_20260125_161302_498_1769368461416_photo_optimized.jpg" alt="" loading="lazy" decoding="async">
-              <div class="cap"><div><b>Formatura ao Ar Livre</b><small>a turma toda e o abraço no mesmo quadro.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+              <div class="cap"><div><b>Festival na Praça</b><small>palco, barracas e milhares de pessoas vistos de cima.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
             </div>
             <div class="work-progress" aria-hidden="true"><span></span></div>
           </div>
@@ -565,11 +566,11 @@
           <div class="svc-gallery-inner">
             <div class="work-grid">
             <article class="ph work-item"><span class="tag">Publicidade e Comerciais</span><svg><use href="#img"/></svg><img data-photo="5" data-remote="productions/Publicidade%20e%20Comerciais/Captura%20de%20tela%202025-06-29%20090839.jpg" alt="" loading="lazy" decoding="async">
-              <div class="cap"><div><b>Campanha de Marca</b><small>uma história visual construída em torno da sua identidade.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+              <div class="cap"><div><b>Vídeo Institucional</b><small>o campus inteiro, dos telhados solares à avenida de acesso.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
             <article class="ph work-item"><span class="tag">Publicidade e Comerciais</span><svg><use href="#img"/></svg><img data-photo="6" data-remote="productions/Publicidade%20e%20Comerciais/dji_fly_20251226_174326_397_1766781869927_photo_optimized.jpg" alt="" loading="lazy" decoding="async">
-              <div class="cap"><div><b>Vídeo Institucional</b><small>a sua empresa, vista de cima e de perto.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+              <div class="cap"><div><b>Campanha de Marca</b><small>a identidade da marca em destaque no gramado e nas piscinas.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
             <article class="ph work-item"><span class="tag">Publicidade e Comerciais</span><svg><use href="#img"/></svg><img data-photo="7" data-remote="productions/Publicidade%20e%20Comerciais/dji_fly_20251226_174422_399_1766781885483_photo_optimized.jpg" alt="" loading="lazy" decoding="async">
-              <div class="cap"><div><b>Conteúdo para Redes</b><small>cenas aéreas feitas para parar o scroll.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+              <div class="cap"><div><b>Conteúdo para Redes</b><small>cores e geometria feitas para parar o scroll.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
             </div>
             <div class="work-progress" aria-hidden="true"><span></span></div>
           </div>
@@ -588,15 +589,15 @@
           <div class="svc-gallery-inner">
             <div class="work-grid">
             <article class="ph work-item"><span class="tag">Turismo e Hospitalidade</span><svg><use href="#img"/></svg><img data-photo="8" data-remote="productions/Turismo%20e%20Hospitalidade/Captura%20de%20tela%202026-01-02%20114722.jpg" alt="" loading="lazy" decoding="async">
-              <div class="cap"><div><b>Pousada entre as Árvores</b><small>o refúgio visto como o hóspede sonha.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+              <div class="cap"><div><b>Pousada à Beira-Mar</b><small>a casa entre os coqueiros, a poucos passos do mar.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
             <article class="ph work-item"><span class="tag">Turismo e Hospitalidade</span><svg><use href="#img"/></svg><img data-photo="9" data-remote="productions/Turismo%20e%20Hospitalidade/Captura%20de%20tela%202026-01-02%20114911.jpg" alt="" loading="lazy" decoding="async">
-              <div class="cap"><div><b>Hotel à Beira-Mar</b><small>a estrutura e o mar no mesmo quadro.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+              <div class="cap"><div><b>Praia com Estrutura</b><small>guarda-sóis, quiosques e o mar em um só olhar.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
             <article class="ph work-item"><span class="tag">Turismo e Hospitalidade</span><svg><use href="#img"/></svg><img data-photo="10" data-remote="productions/Turismo%20e%20Hospitalidade/Captura%20de%20tela%202026-01-02%20114947.jpg" alt="" loading="lazy" decoding="async">
-              <div class="cap"><div><b>Sítio de Lazer</b><small>espaço, verde e piscina em um só olhar.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+              <div class="cap"><div><b>Quiosque entre as Dunas</b><small>a barraca de praia com o coqueiral ao fundo.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
             <article class="ph work-item"><span class="tag">Turismo e Hospitalidade</span><svg><use href="#img"/></svg><img data-photo="11" data-remote="productions/Turismo%20e%20Hospitalidade/Captura%20de%20tela%202025-07-21%20081636.jpg" alt="" loading="lazy" decoding="async">
-              <div class="cap"><div><b>Camping ao Amanhecer</b><small>a primeira luz sobre as barracas.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+              <div class="cap"><div><b>Parque e Lagoa</b><small>o passeio verde ao redor do espelho d'água.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
             <article class="ph work-item"><span class="tag">Turismo e Hospitalidade</span><svg><use href="#img"/></svg><img data-photo="12" data-remote="productions/Turismo%20e%20Hospitalidade/Captura%20de%20tela%202025-07-21%20083500.jpg" alt="" loading="lazy" decoding="async">
-              <div class="cap"><div><b>Parque e Atrações</b><small>a aventura mostrada antes da chegada.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+              <div class="cap"><div><b>Natureza em Destaque</b><small>a lagoa e a mata preservada, com a cidade no horizonte.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
             </div>
             <div class="work-progress" aria-hidden="true"><span></span></div>
           </div>
@@ -615,13 +616,13 @@
           <div class="svc-gallery-inner">
             <div class="work-grid">
             <article class="ph work-item"><span class="tag">Mercado Imobiliário</span><svg><use href="#img"/></svg><img data-photo="0" data-remote="productions/Mercado%20Imobili%C3%A1rio/Captura%20de%20tela%202025-06-29%20192507.jpg" alt="" loading="lazy" decoding="async">
-              <div class="cap"><div><b>Lançamento de Loteamento</b><small>terreno, acesso e entorno em um só olhar.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+              <div class="cap"><div><b>Casa com Piscina</b><small>telhado solar, deck e piscina valorizados de cima.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
             <article class="ph work-item"><span class="tag">Mercado Imobiliário</span><svg><use href="#img"/></svg><img data-photo="1" data-remote="productions/Mercado%20Imobili%C3%A1rio/Captura%20de%20tela%202025-06-29%20193649.jpg" alt="" loading="lazy" decoding="async">
-              <div class="cap"><div><b>Vista Real dos Andares</b><small>a paisagem do morador, mostrada antes da mudança.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+              <div class="cap"><div><b>Visão Vertical do Lote</b><small>o terreno, a rua e o acabamento vistos de cima.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
             <article class="ph work-item"><span class="tag">Mercado Imobiliário</span><svg><use href="#img"/></svg><img data-photo="2" data-remote="productions/Mercado%20Imobili%C3%A1rio/Captura%20de%20tela%202025-06-21%20161220.jpg" alt="" loading="lazy" decoding="async">
-              <div class="cap"><div><b>Condomínio Completo</b><small>a escala do empreendimento em um único plano.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+              <div class="cap"><div><b>Condomínio no Lago</b><small>as casas, a lagoa e o verde ao redor.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
             <article class="ph work-item"><span class="tag">Mercado Imobiliário</span><svg><use href="#img"/></svg><img data-photo="3" data-remote="productions/Mercado%20Imobili%C3%A1rio/Captura%20de%20tela%202025-06-29%20090148.jpg" alt="" loading="lazy" decoding="async">
-              <div class="cap"><div><b>Casa para Locação</b><small>o imóvel valorizado por imagens nítidas.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+              <div class="cap"><div><b>Entorno e Acessos</b><small>vias, lazer e vizinhança ao redor do empreendimento.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
             </div>
             <div class="work-progress" aria-hidden="true"><span></span></div>
           </div>
@@ -640,11 +641,11 @@
           <div class="svc-gallery-inner">
             <div class="work-grid">
             <article class="ph work-item"><span class="tag">Construção e Engenharia</span><svg><use href="#img"/></svg><img data-photo="0" data-remote="productions/Constru%C3%A7%C3%A3o%20Civil%20e%20Engenharia/Captura%20de%20tela%202026-10-27%20144640.png" alt="" loading="lazy" decoding="async">
-              <div class="cap"><div><b>Obra Vista do Alto</b><small>registros periódicos que mostram cada etapa.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+              <div class="cap"><div><b>Estrutura em Andamento</b><small>laje, formas e equipe no último pavimento.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
             <article class="ph work-item"><span class="tag">Construção e Engenharia</span><svg><use href="#img"/></svg><img data-photo="1" data-remote="productions/Constru%C3%A7%C3%A3o%20Civil%20e%20Engenharia/Captura%20de%20tela%202026-10-27%20150837.png" alt="" loading="lazy" decoding="async">
-              <div class="cap"><div><b>Fachada Sem Andaimes</b><small>cada detalhe inspecionado, sem risco para a equipe.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+              <div class="cap"><div><b>Torres em Construção</b><small>o avanço dos blocos visto de uma só vez.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
             <article class="ph work-item"><span class="tag">Construção e Engenharia</span><svg><use href="#img"/></svg><img data-photo="2" data-remote="productions/Constru%C3%A7%C3%A3o%20Civil%20e%20Engenharia/Captura%20de%20tela%202026-10-27%20150934.png" alt="" loading="lazy" decoding="async">
-              <div class="cap"><div><b>Telhado de Galpão</b><small>problemas encontrados em horas, não em dias.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+              <div class="cap"><div><b>Canteiro de Obras</b><small>acessos, logística e frentes de trabalho no mesmo plano.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
             </div>
             <div class="work-progress" aria-hidden="true"><span></span></div>
           </div>
@@ -663,17 +664,16 @@
           <div class="svc-gallery-inner">
             <div class="work-grid">
             <article class="ph work-item"><span class="tag">Cobertura Jornalística</span><svg><use href="#img"/></svg><img data-photo="10" data-remote="productions/Cobertura%20Jornal%C3%ADstica/Captura%20de%20tela%202026-10-27%20144439.png" alt="" loading="lazy" decoding="async">
-              <div class="cap"><div><b>Grande Obra Urbana</b><small>o tamanho do projeto que muda a cidade.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+              <div class="cap"><div><b>Avenida e Bairros</b><small>o fluxo da cidade e o entorno em um único plano.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
             <article class="ph work-item"><span class="tag">Cobertura Jornalística</span><svg><use href="#img"/></svg><img data-photo="11" data-remote="productions/Cobertura%20Jornal%C3%ADstica/Captura%20de%20tela%202026-10-27%20145049.png" alt="" loading="lazy" decoding="async">
-              <div class="cap"><div><b>Enchente em Tempo Real</b><small>o alcance do problema visto de cima.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+              <div class="cap"><div><b>Porto e Cidade</b><small>o cais, o navio e a cidade ao fundo.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
             <article class="ph work-item"><span class="tag">Cobertura Jornalística</span><svg><use href="#img"/></svg><img data-photo="12" data-remote="productions/Cobertura%20Jornal%C3%ADstica/dji_fly_20251227_172918_409_1766867592648_photo_optimized.jpg" alt="" loading="lazy" decoding="async">
-              <div class="cap"><div><b>Reportagem Especial</b><small>o contexto que a câmera no chão não alcança.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+              <div class="cap"><div><b>Orla ao Pôr do Sol</b><small>a costa e os prédios sob a luz do fim de tarde.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
             </div>
             <div class="work-progress" aria-hidden="true"><span></span></div>
           </div>
         </div>
       </div>
-      <p id="svcEmpty" class="center" style="display:none;color:var(--muted)">Nenhum serviço encontrado para a sua busca.</p>
     </div>
   </section>
 
@@ -723,7 +723,7 @@
       <span class="pill">Insights SkyPixel</span>
       <div class="head-row">
         <h2>Olhe além da lente e descubra<br>a história por trás da imagem</h2>
-        <a href="#" class="btn btn-light">Ver mais artigos <span class="round" style="width:28px;height:28px"><svg width="14" height="14"><use href="#arrow"/></svg></span></a>
+        <a href="#work" class="btn btn-light">Ver material <span class="round" style="width:28px;height:28px"><svg width="14" height="14"><use href="#arrow"/></svg></span></a>
       </div>
       <div class="ins-grid">
         <a href="#" class="ins-card"><div class="ph"><svg><use href="#img"/></svg><img data-photo="10" data-remote="productions/insight-planejamento.jpg" alt="" loading="lazy" decoding="async"></div><h3>Planejar o voo é metade da imagem</h3><p>Da escolha do local, da luz e do clima à autorização e ao roteiro: todo o planejamento acontece antes de o drone decolar.</p><template class="ins-full"><p>Uma boa imagem aérea começa muito antes de o drone sair do chão. Primeiro entendemos o objetivo do projeto: o que a imagem precisa mostrar, para quem e onde ela será usada.</p><p>Depois vem a escolha do local e do horário. A direção e a altura do sol mudam completamente o resultado: a luz suave do início da manhã e do fim da tarde valoriza texturas e cores, enquanto o sol a pino achata a cena. Também checamos a previsão de vento, chuva e visibilidade.</p><p>Em seguida cuidamos da parte legal e de segurança: consulta ao espaço aéreo, autorização de voo quando necessária, drone cadastrado, piloto habilitado e equipamento segurado. Por fim, definimos o roteiro de tomadas, com os movimentos de câmera, alturas e ângulos, para aproveitar bem cada bateria.</p><p>Com tudo isso resolvido, o voo é rápido, seguro e entrega exatamente o que foi combinado.</p></template></a>
@@ -871,6 +871,66 @@
   </div>
 </footer>
 
+<div class="modal" id="allModal" role="dialog" aria-modal="true" aria-labelledby="allTitle">
+  <div class="modal-backdrop" data-close-all></div>
+  <div class="all-box">
+    <div class="all-head">
+      <h3 id="allTitle">Todos os trabalhos</h3>
+      <button type="button" class="round light modal-close" data-close-all aria-label="Fechar"><svg width="18" height="18"><use href="#x"/></svg></button>
+    </div>
+    <div class="all-grid" id="allGrid">
+      <article class="ph work-item"><span class="tag">Paisagem Aérea</span><svg><use href="#img"/></svg><img data-photo="0" data-remote="productions/Best/Captura%20de%20tela%202025-06-29%20192115.jpg" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Paisagem Aérea</b><small>beleza natural registrada com enquadramento e cor de cinema.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+      <article class="ph work-item"><span class="tag">Mapeamento e Planejamento</span><svg><use href="#img"/></svg><img data-photo="1" data-remote="productions/Best/Captura%20de%20tela%202025-07-09%20092557%20%282%29.jpg" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Visão de Planejamento</b><small>a visão vertical que ajuda a definir usos, acessos e estruturas.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+      <article class="ph work-item"><span class="tag">Natureza e Preservação</span><svg><use href="#img"/></svg><img data-photo="2" data-remote="productions/Best/dji_fly_20260711_172150_11_1783801541235_photo_optimized.jpg" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Natureza e Preservação</b><small>áreas verdes e corpos d'água registrados com precisão.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+      <article class="ph work-item"><span class="tag">Filmagem de Eventos</span><svg><use href="#img"/></svg><img data-photo="3" data-remote="productions/Eventos%20e%20Shows/dji_fly_20260125_160758_490_1769368449470_photo_optimized.jpg" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Show ao Vivo</b><small>o palco, a banda e o público no mesmo quadro.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+      <article class="ph work-item"><span class="tag">Filmagem de Eventos</span><svg><use href="#img"/></svg><img data-photo="4" data-remote="productions/Eventos%20e%20Shows/dji_fly_20260125_160808_491_1769368446496_photo_optimized.jpg" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Festa de Rua</b><small>a multidão tomando a praça em frente à igreja.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+      <article class="ph work-item"><span class="tag">Filmagem de Eventos</span><svg><use href="#img"/></svg><img data-photo="5" data-remote="productions/Eventos%20e%20Shows/dji_fly_20260125_161302_498_1769368461416_photo_optimized.jpg" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Festival na Praça</b><small>palco, barracas e milhares de pessoas vistos de cima.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+      <article class="ph work-item"><span class="tag">Publicidade e Comerciais</span><svg><use href="#img"/></svg><img data-photo="5" data-remote="productions/Publicidade%20e%20Comerciais/Captura%20de%20tela%202025-06-29%20090839.jpg" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Vídeo Institucional</b><small>o campus inteiro, dos telhados solares à avenida de acesso.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+      <article class="ph work-item"><span class="tag">Publicidade e Comerciais</span><svg><use href="#img"/></svg><img data-photo="6" data-remote="productions/Publicidade%20e%20Comerciais/dji_fly_20251226_174326_397_1766781869927_photo_optimized.jpg" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Campanha de Marca</b><small>a identidade da marca em destaque no gramado e nas piscinas.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+      <article class="ph work-item"><span class="tag">Publicidade e Comerciais</span><svg><use href="#img"/></svg><img data-photo="7" data-remote="productions/Publicidade%20e%20Comerciais/dji_fly_20251226_174422_399_1766781885483_photo_optimized.jpg" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Conteúdo para Redes</b><small>cores e geometria feitas para parar o scroll.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+      <article class="ph work-item"><span class="tag">Turismo e Hospitalidade</span><svg><use href="#img"/></svg><img data-photo="8" data-remote="productions/Turismo%20e%20Hospitalidade/Captura%20de%20tela%202026-01-02%20114722.jpg" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Pousada à Beira-Mar</b><small>a casa entre os coqueiros, a poucos passos do mar.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+      <article class="ph work-item"><span class="tag">Turismo e Hospitalidade</span><svg><use href="#img"/></svg><img data-photo="9" data-remote="productions/Turismo%20e%20Hospitalidade/Captura%20de%20tela%202026-01-02%20114911.jpg" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Praia com Estrutura</b><small>guarda-sóis, quiosques e o mar em um só olhar.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+      <article class="ph work-item"><span class="tag">Turismo e Hospitalidade</span><svg><use href="#img"/></svg><img data-photo="10" data-remote="productions/Turismo%20e%20Hospitalidade/Captura%20de%20tela%202026-01-02%20114947.jpg" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Quiosque entre as Dunas</b><small>a barraca de praia com o coqueiral ao fundo.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+      <article class="ph work-item"><span class="tag">Turismo e Hospitalidade</span><svg><use href="#img"/></svg><img data-photo="11" data-remote="productions/Turismo%20e%20Hospitalidade/Captura%20de%20tela%202025-07-21%20081636.jpg" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Parque e Lagoa</b><small>o passeio verde ao redor do espelho d'água.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+      <article class="ph work-item"><span class="tag">Turismo e Hospitalidade</span><svg><use href="#img"/></svg><img data-photo="12" data-remote="productions/Turismo%20e%20Hospitalidade/Captura%20de%20tela%202025-07-21%20083500.jpg" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Natureza em Destaque</b><small>a lagoa e a mata preservada, com a cidade no horizonte.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+      <article class="ph work-item"><span class="tag">Mercado Imobiliário</span><svg><use href="#img"/></svg><img data-photo="0" data-remote="productions/Mercado%20Imobili%C3%A1rio/Captura%20de%20tela%202025-06-29%20192507.jpg" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Casa com Piscina</b><small>telhado solar, deck e piscina valorizados de cima.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+      <article class="ph work-item"><span class="tag">Mercado Imobiliário</span><svg><use href="#img"/></svg><img data-photo="1" data-remote="productions/Mercado%20Imobili%C3%A1rio/Captura%20de%20tela%202025-06-29%20193649.jpg" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Visão Vertical do Lote</b><small>o terreno, a rua e o acabamento vistos de cima.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+      <article class="ph work-item"><span class="tag">Mercado Imobiliário</span><svg><use href="#img"/></svg><img data-photo="2" data-remote="productions/Mercado%20Imobili%C3%A1rio/Captura%20de%20tela%202025-06-21%20161220.jpg" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Condomínio no Lago</b><small>as casas, a lagoa e o verde ao redor.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+      <article class="ph work-item"><span class="tag">Mercado Imobiliário</span><svg><use href="#img"/></svg><img data-photo="3" data-remote="productions/Mercado%20Imobili%C3%A1rio/Captura%20de%20tela%202025-06-29%20090148.jpg" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Entorno e Acessos</b><small>vias, lazer e vizinhança ao redor do empreendimento.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+      <article class="ph work-item"><span class="tag">Construção e Engenharia</span><svg><use href="#img"/></svg><img data-photo="0" data-remote="productions/Constru%C3%A7%C3%A3o%20Civil%20e%20Engenharia/Captura%20de%20tela%202026-10-27%20144640.png" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Estrutura em Andamento</b><small>laje, formas e equipe no último pavimento.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+      <article class="ph work-item"><span class="tag">Construção e Engenharia</span><svg><use href="#img"/></svg><img data-photo="1" data-remote="productions/Constru%C3%A7%C3%A3o%20Civil%20e%20Engenharia/Captura%20de%20tela%202026-10-27%20150837.png" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Torres em Construção</b><small>o avanço dos blocos visto de uma só vez.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+      <article class="ph work-item"><span class="tag">Construção e Engenharia</span><svg><use href="#img"/></svg><img data-photo="2" data-remote="productions/Constru%C3%A7%C3%A3o%20Civil%20e%20Engenharia/Captura%20de%20tela%202026-10-27%20150934.png" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Canteiro de Obras</b><small>acessos, logística e frentes de trabalho no mesmo plano.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+      <article class="ph work-item"><span class="tag">Cobertura Jornalística</span><svg><use href="#img"/></svg><img data-photo="10" data-remote="productions/Cobertura%20Jornal%C3%ADstica/Captura%20de%20tela%202026-10-27%20144439.png" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Avenida e Bairros</b><small>o fluxo da cidade e o entorno em um único plano.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+      <article class="ph work-item"><span class="tag">Cobertura Jornalística</span><svg><use href="#img"/></svg><img data-photo="11" data-remote="productions/Cobertura%20Jornal%C3%ADstica/Captura%20de%20tela%202026-10-27%20145049.png" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Porto e Cidade</b><small>o cais, o navio e a cidade ao fundo.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+      <article class="ph work-item"><span class="tag">Cobertura Jornalística</span><svg><use href="#img"/></svg><img data-photo="12" data-remote="productions/Cobertura%20Jornal%C3%ADstica/dji_fly_20251227_172918_409_1766867592648_photo_optimized.jpg" alt="" loading="lazy" decoding="async">
+              <div class="cap"><div><b>Orla ao Pôr do Sol</b><small>a costa e os prédios sob a luz do fim de tarde.</small></div><span class="round"><svg width="16" height="16"><use href="#arrow"/></svg></span></div></article>
+    </div>
+  </div>
+</div>
+
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-backdrop" data-close></div>
   <div class="modal-box">
@@ -910,21 +970,6 @@
   const menu = document.getElementById('menu');
   document.getElementById('burger').addEventListener('click', () => menu.classList.toggle('open'));
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
-
-  // service search (ignores accents)
-  const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
-  const search = document.getElementById('svcSearch');
-  const svcs = document.querySelectorAll('.svc-item');
-  search.addEventListener('input', () => {
-    const q = norm(search.value.trim());
-    let shown = 0;
-    svcs.forEach(s => {
-      const hit = !q || norm(s.dataset.text + ' ' + s.textContent).includes(q);
-      s.classList.toggle('hidden', !hit);
-      if (hit) shown++;
-    });
-    document.getElementById('svcEmpty').style.display = shown ? 'none' : 'block';
-  });
 
   // testimonials
   const slides = document.querySelectorAll('.testi-slide');
@@ -994,6 +1039,7 @@
     mCount.textContent = String(mIdx + 1).padStart(2, '0') + ' / ' + String(mList.length).padStart(2, '0');
   }
   function openModal(it, track){
+    if (track.id === 'workGrid') { it = allGrid.children[Number(it.dataset.i)]; track = allGrid; }
     mList = [...track.querySelectorAll('.work-item, .ins-card')].filter(x => x.style.display !== 'none');
     mIdx = Math.max(0, mList.indexOf(it));
     fillModal();
@@ -1004,7 +1050,7 @@
   }
   function closeModal(){
     modal.classList.remove('open');
-    document.body.style.overflow = '';
+    document.body.style.overflow = allModal.classList.contains('open') ? 'hidden' : '';
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
   function stepModal(d){ mIdx = (mIdx + d + mList.length) % mList.length; fillModal(); }
@@ -1067,6 +1113,32 @@
   }
   document.querySelectorAll('.work-grid').forEach(initCarousel);
 
+  // all works popup: preview cards and the popup share one photo list
+  const allModal = document.getElementById('allModal');
+  const allGrid = document.getElementById('allGrid');
+  const workMore = document.getElementById('workMore');
+  let allFocus = null;
+  function openAll(){
+    allFocus = document.activeElement;
+    allModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    allModal.querySelector('.modal-close').focus();
+  }
+  function closeAll(){
+    allModal.classList.remove('open');
+    document.body.style.overflow = '';
+    if (allFocus && allFocus.focus) allFocus.focus();
+  }
+  workMore.addEventListener('click', openAll);
+  allModal.addEventListener('click', e => { if (e.target.closest('[data-close-all]')) closeAll(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && allModal.classList.contains('open') && !modal.classList.contains('open')) closeAll();
+  });
+  allGrid.addEventListener('click', e => { const it = e.target.closest('.work-item'); if (it) openModal(it, allGrid); });
+  allGrid.addEventListener('keydown', e => {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('work-item')) { e.preventDefault(); openModal(e.target, allGrid); }
+  });
+
   // insight cards open the same modal
   const insGrid = document.querySelector('.ins-grid');
   insGrid.addEventListener('click', e => {
@@ -1096,7 +1168,6 @@
   document.querySelectorAll('#filters a').forEach(a => a.addEventListener('click', () => {
     const t = document.querySelector(a.getAttribute('href'));
     if (!t || !t.classList.contains('svc-item')) return;
-    if (search.value) { search.value = ''; search.dispatchEvent(new Event('input')); }
     svcItems.forEach(o => { if (o !== t) setSvc(o, false); });
     setSvc(t, true);
     setTimeout(() => {
