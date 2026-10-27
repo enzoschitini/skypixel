@@ -69,6 +69,7 @@
   .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:999px;font-weight:500;font-size:14px;transition:.2s}
   .btn-dark{background:var(--ink);color:var(--on-ink)}
   .btn-dark:hover{background:var(--ink-hover)}
+  .btn-wpp{background:var(--lime);color:#111;border:0}
   .btn-light{background:var(--surface);border:1px solid var(--line)}
   .btn-light:hover{background:var(--lime);color:#111}
   .btn-outline{border:1px solid var(--ink)}
@@ -421,8 +422,8 @@
       <div class="strip">
         <div class="stats">
           <!-- AJUSTE: troque pelos seus números reais -->
-          <div class="stat"><strong>32 mil</strong><span>pessoas satisfeitas com o resultado</span></div>
-          <div class="stat"><strong>120 mil+</strong><span>fotos e vídeos aéreos entregues</span></div>
+          <div class="stat"><strong>80+</strong><span>clientes satisfeitos com o resultado</span></div>
+          <div class="stat"><strong>450+</strong><span>fotos e vídeos aéreos entregues</span></div>
         </div>
         <ul id="filters">
           <li><a href="#services">Todos</a></li>
@@ -862,12 +863,13 @@
       <div>
         <div class="logo">SKYPIXEL</div>
         <p>Seu mundo visto de cima. Imagens aéreas que fazem sua história ser lembrada.</p>
+        <a href="https://wa.me/SEUNUMERO" class="btn btn-wpp" target="_blank" rel="noopener" style="margin-top:18px">Fale no WhatsApp <span class="round" style="width:28px;height:28px"><svg width="14" height="14"><use href="#arrow"/></svg></span></a>
       </div>
       <div><h4>Nossos serviços</h4><ul><li><a href="#service-event">Eventos e Shows</a></li><li><a href="#service-advertising">Publicidade e Comerciais</a></li><li><a href="#service-tourism">Turismo e Hospitalidade</a></li><li><a href="#service-realestate">Mercado Imobiliário</a></li><li><a href="#service-construction">Construção Civil e Engenharia</a></li><li><a href="#service-news">Cobertura Jornalística</a></li></ul></div>
-      <div><h4>Redes sociais</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li><li><a href="#">YouTube</a></li><li><a href="#">LinkedIn</a></li></ul></div>
       <div><h4>Sobre</h4><ul><li><a href="#about">Sobre nós</a></li><li><a href="#work">Nossos trabalhos</a></li><li><a href="#testimonials">Depoimentos</a></li><li><a href="#insights">Insights SkyPixel</a></li></ul></div>
+      <div><h4>Outros</h4><ul><li><a href="#pricing">Planos</a></li><li><a href="#faq">Dúvidas</a></li></ul></div>
     </div>
-    <div class="foot-bottom"><span>Política de Privacidade / Termos de Uso</span><span>© 2026 SKYPIXEL. Todos os direitos reservados.</span></div>
+    <div class="foot-bottom"><span>Localizados em Salvador, BA</span><span>© 2026 SKYPIXEL. Todos os direitos reservados.</span></div>
   </div>
 </footer>
 
@@ -1184,7 +1186,7 @@
   // scroll reveal: from "Sobre a SkyPixel" down
   if ('IntersectionObserver' in window) {
     const targets = [];
-    document.querySelectorAll('#about .wrap, #work .wrap, #services .wrap, #testimonials .wrap, #insights .wrap, #pricing .wrap, #faq .wrap, #subscribe .wrap, footer .wrap').forEach(w => {
+    document.querySelectorAll('#about .wrap, #work .wrap, #services .wrap, #testimonials .wrap, #insights .wrap, #pricing .wrap, #faq .wrap, #subscribe .wrap').forEach(w => {
       [...w.children].forEach(c => {
         if (c.matches('.ins-grid, .price-grid, .foot-grid')) [...c.children].forEach((g, i) => { g.style.setProperty('--d', i * 120 + 'ms'); targets.push(g); });
         else targets.push(c);
