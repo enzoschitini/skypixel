@@ -161,6 +161,14 @@
   .swap-text{color:var(--text2);max-width:540px;display:flex;flex-direction:column;align-items:flex-start;gap:16px}
   .swap-text .btn{margin-top:8px}
   .swap .plan h3{font-size:18px;font-weight:600;margin-bottom:18px}
+  .places{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  .place{background:var(--surface);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;gap:6px;min-height:120px;justify-content:flex-end}
+  .place b{font-size:clamp(20px,1.8vw,26px);font-weight:500;letter-spacing:-.01em}
+  .place small{font-size:13px;color:var(--muted)}
+  .places-note{color:var(--muted);font-size:14px;margin-top:24px}
+  .places-note a{color:var(--ink);text-decoration:underline}
+  @media (max-width:900px){.places{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:520px){.places{grid-template-columns:1fr}}
   .foot-me{display:flex;align-items:center;gap:12px;margin-top:16px}
   .foot-me b{display:block;font-weight:600;font-size:14px;color:var(--ink)}
   .foot-me small{display:block;font-size:12px;color:var(--muted)}
@@ -753,6 +761,25 @@
     </div>
   </section>
 
+  <!-- LOCAIS -->
+  <section id="places">
+    <div class="wrap">
+      <span class="pill">Onde atuo</span>
+      <div class="head-row">
+        <h2>Voo em Salvador<br>e no Litoral Norte</h2>
+      </div>
+      <div class="places">
+        <div class="place"><b>Salvador</b><small>Salvador</small></div>
+        <div class="place"><b>Lauro de Freitas</b><small>Lauro de Freitas</small></div>
+        <div class="place"><b>Villas do Atlântico</b><small>Lauro de Freitas</small></div>
+        <div class="place"><b>Praia do Forte</b><small>Mata de São João</small></div>
+        <div class="place"><b>Guarajuba</b><small>Camaçari</small></div>
+        <div class="place"><b>Itacimirim</b><small>Camaçari</small></div>
+      </div>
+      <p class="places-note">Seu projeto é em outro lugar? <a href="#subscribe">Fale comigo</a> e vejo se consigo atender. O deslocamento é combinado conforme o local.</p>
+    </div>
+  </section>
+
   <!-- PLANOS -->
   <section id="pricing">
     <div class="wrap center">
@@ -918,7 +945,7 @@
       </div>
       <div><h4>Meus serviços</h4><ul><li><a href="#service-event">Eventos e Shows</a></li><li><a href="#service-advertising">Publicidade e Comerciais</a></li><li><a href="#service-tourism">Turismo e Hospitalidade</a></li><li><a href="#service-realestate">Mercado Imobiliário</a></li><li><a href="#service-construction">Construção Civil e Engenharia</a></li><li><a href="#service-news">Cobertura Jornalística</a></li></ul></div>
       <div><h4>Sobre</h4><ul><li><a href="#about">Sobre mim</a></li><li><a href="#work">Meus trabalhos</a></li><li><a href="#testimonials">Depoimentos</a></li><li><a href="#insights">Bastidores do voo</a></li></ul></div>
-      <div><h4>Outros</h4><ul><li><a href="#pricing">Planos</a></li><li><a href="#swap">Permuta</a></li><li><a href="#faq">Dúvidas</a></li></ul><div class="foot-me"><span class="avatar"><img src="imgs/profile.jpg" alt="Enzo Schitini" width="96" height="96" decoding="async"></span><span><b>Enzo Schitini</b><small>Piloto de drone e editor</small></span></div></div>
+      <div><h4>Outros</h4><ul><li><a href="#places">Onde atuo</a></li><li><a href="#pricing">Planos</a></li><li><a href="#swap">Permuta</a></li><li><a href="#faq">Dúvidas</a></li></ul><div class="foot-me"><span class="avatar"><img src="imgs/profile.jpg" alt="Enzo Schitini" width="96" height="96" decoding="async"></span><span><b>Enzo Schitini</b><small>Piloto de drone e editor</small></span></div></div>
     </div>
     <div class="foot-bottom"><span>Localizado em Salvador, BA</span><span>© 2026 SKYPIXEL · Enzo Schitini. Todos os direitos reservados.</span></div>
   </div>
