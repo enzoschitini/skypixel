@@ -107,7 +107,7 @@
   .hero p{color:var(--text2);max-width:520px;margin-bottom:28px}
   .hero-thumbs{display:flex;gap:16px;margin-top:40px}
   .hero-thumbs .ph{flex:1;height:clamp(120px,12vw,230px);border-radius:16px}
-  .hero-main{min-height:380px;aspect-ratio:5/6}
+  .hero-main{min-height:380px;max-height:calc(100svh - 120px)}
   .hero-grid>div:first-child{display:flex;flex-direction:column;align-items:flex-start}
   .hero h1{margin-top:auto}
   .hero-thumbs{margin-top:auto;padding-top:clamp(48px,5vw,96px);width:100%}
@@ -320,11 +320,11 @@
   /* footer */
   footer{background:var(--surface);color:var(--ink);padding:20px 0 28px;margin-top:-1px}
   .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;padding:48px 0;border-bottom:1px solid var(--line)}
-  .foot-grid p{color:var(--muted);font-size:14px;max-width:280px;margin-top:16px}
+  .foot-grid p{color:var(--muted);font-size:14px;max-width:280px;margin-top:16px;margin-bottom:24px}
   .foot-grid h4{font-weight:500;margin-bottom:16px;color:var(--ink);font-size:14px}
   .foot-grid ul{list-style:none;display:grid;gap:10px;font-size:14px;color:var(--text2)}
   .foot-grid li a:hover{color:var(--ink);text-decoration:underline}
-  .foot-bottom{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);padding-top:20px;flex-wrap:wrap;gap:10px}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:flex-end;font-size:13px;color:var(--muted);padding-top:20px;flex-wrap:wrap;gap:10px}
 
   /* scroll reveal */
   .reveal{opacity:0;transform:translateY(48px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
@@ -351,6 +351,7 @@
     .modal-img{min-height:0;height:auto;aspect-ratio:4/3}
     .modal-info{padding:24px 22px;overflow:visible}
     .hero-grid,.about-slide,.about-me,.swap,.faq-grid,.ins-grid,.svc-imgs{grid-template-columns:1fr}
+    .hero-main{aspect-ratio:5/6;max-height:none}
     .work-item{height:420px;flex-basis:80%}
     .svc{grid-template-columns:1fr;gap:16px}
     .strip ul{gap:18px;flex-wrap:wrap}
@@ -387,11 +388,12 @@
     <nav>
       <a href="#home" class="logo">SKYPIXEL</a>
       <div class="menu" id="menu">
-        <a href="#home">Início</a>
         <a href="#about">Sobre</a>
         <a href="#work">Trabalhos</a>
         <a href="#services">Serviços</a>
         <a href="#pricing">Planos</a>
+        <a href="#places">Locais</a>
+        <a href="#swap">Permuta</a>
       </div>
       <div class="nav-actions">
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar entre tema claro e escuro" title="Claro / Escuro"><svg class="i-moon"><use href="#moon"/></svg><svg class="i-sun"><use href="#sun"/></svg></button>
@@ -939,15 +941,15 @@
 <footer>
   <div class="wrap">
     <div class="foot-grid">
-      <div>
+      <div style="display:flex;flex-direction:column;align-items:flex-start">
         <div class="logo">SKYPIXEL</div>        <p>Seu mundo visto de cima. Imagens aéreas que fazem sua história ser lembrada.</p>
-        <a href="https://wa.me/557186841489?s=t" class="btn btn-wpp" target="_blank" rel="noopener" style="margin-top:18px">Fale no WhatsApp <span class="round" style="width:28px;height:28px"><svg width="14" height="14"><use href="#arrow"/></svg></span></a>
+        <a href="https://wa.me/557186841489?s=t" class="btn btn-wpp" target="_blank" rel="noopener" style="margin-top:auto">Fale no WhatsApp <span class="round" style="width:28px;height:28px"><svg width="14" height="14"><use href="#arrow"/></svg></span></a>
       </div>
-      <div><h4>Meus serviços</h4><ul><li><a href="#service-event">Eventos e Shows</a></li><li><a href="#service-advertising">Publicidade e Comerciais</a></li><li><a href="#service-tourism">Turismo e Hospitalidade</a></li><li><a href="#service-realestate">Mercado Imobiliário</a></li><li><a href="#service-construction">Construção Civil e Engenharia</a></li><li><a href="#service-news">Cobertura Jornalística</a></li></ul></div>
       <div><h4>Sobre</h4><ul><li><a href="#about">Sobre mim</a></li><li><a href="#work">Meus trabalhos</a></li><li><a href="#testimonials">Depoimentos</a></li><li><a href="#insights">Bastidores do voo</a></li></ul></div>
-      <div><h4>Outros</h4><ul><li><a href="#places">Onde atuo</a></li><li><a href="#pricing">Planos</a></li><li><a href="#swap">Permuta</a></li><li><a href="#faq">Dúvidas</a></li></ul><div class="foot-me"><span class="avatar"><img src="imgs/profile.jpg" alt="Enzo Schitini" width="96" height="96" decoding="async"></span><span><b>Enzo Schitini</b><small>Piloto de drone e editor</small></span></div></div>
+      <div><h4>Meus serviços</h4><ul><li><a href="#service-event">Eventos e Shows</a></li><li><a href="#service-advertising">Publicidade e Comerciais</a></li><li><a href="#service-tourism">Turismo e Hospitalidade</a></li><li><a href="#service-realestate">Mercado Imobiliário</a></li><li><a href="#service-construction">Construção Civil e Engenharia</a></li><li><a href="#service-news">Cobertura Jornalística</a></li></ul></div>
+      <div><h4>Outros</h4><ul><li><a href="#places">Onde atuo</a></li><li><a href="#pricing">Planos</a></li><li><a href="#swap">Permuta</a></li><li><a href="#faq">Dúvidas</a></li></ul></div>
     </div>
-    <div class="foot-bottom"><span>Localizado em Salvador, BA</span><span>© 2026 SKYPIXEL · Enzo Schitini. Todos os direitos reservados.</span></div>
+    <div class="foot-bottom"><div class="foot-me" style="margin-top:0"><span class="avatar"><img src="imgs/profile.jpg" alt="Enzo Schitini" width="96" height="96" decoding="async"></span><span><b>Enzo Schitini</b><small>Piloto de drone e editor</small></span></div><span>© 2026 SKYPIXEL · Salvador, BA. Todos os direitos reservados.</span></div>
   </div>
 </footer>
 
