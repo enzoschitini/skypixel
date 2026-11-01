@@ -356,6 +356,11 @@
     .svc{grid-template-columns:1fr;gap:16px}
     .strip ul{gap:18px;flex-wrap:wrap}
     .foot-grid{grid-template-columns:1fr 1fr}
+    .foot-grid>div:first-child{grid-column:1/-1}
+    .foot-grid>div:first-child p{max-width:none}
+    .foot-grid>div:first-child .btn{white-space:nowrap}
+    .foot-grid>div:nth-child(3){grid-column:1/-1;order:3}
+    .foot-bottom{flex-direction:column;align-items:flex-start;gap:16px}
     .testi-slide{grid-template-columns:1fr}
     .testi-slide .ph{order:-1;min-height:240px}
     .testi-left{padding:28px 22px;gap:28px}
