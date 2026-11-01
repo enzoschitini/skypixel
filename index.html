@@ -823,7 +823,7 @@
           <div class="swap-text">
             <p>Também faço imagens por hobby. Se o seu negócio é uma pousada, um hotel, um restaurante ou algo parecido, posso gravar e fotografar o seu espaço em troca de um serviço seu, como uma hospedagem, uma refeição ou uma experiência.</p>
             <p>Sou flexível: cada permuta é combinada de acordo com o seu negócio e com o que faz sentido para os dois lados.</p>
-            <a href="#subscribe" class="btn btn-dark">Propor uma permuta <svg width="16" height="16"><use href="#arrow"/></svg></a>
+            <a href="#subscribe" class="btn btn-dark" data-deal="1">Propor uma permuta <svg width="16" height="16"><use href="#arrow"/></svg></a>
           </div>
         </div>
         <div class="plan">
@@ -887,6 +887,12 @@
                 <option>Construção Civil e Engenharia</option>
                 <option>Cobertura Jornalística</option>
                 <option>Outro</option>
+              </select>
+            </label>
+            <label>Como prefere contratar?
+              <select id="subDeal" required>
+                <option>Pago</option>
+                <option>Permuta (troca por serviço do seu negócio)</option>
               </select>
             </label>
             <label>Mensagem<textarea id="subMsgText" placeholder="Conte sua ideia..."></textarea></label>
@@ -1271,17 +1277,21 @@
   const EMAILJS_TEMPLATE_USER = 'template_4shukmk';   // chega no e-mail do visitante
   emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 
+  document.querySelector('[data-deal]').addEventListener('click', () => { document.getElementById('subDeal').selectedIndex = 1; });
+
   document.getElementById('subForm').addEventListener('submit', async e => {
     e.preventDefault();
     const form = e.target;
     const btn = form.querySelector('button[type="submit"]');
     const name = document.getElementById('subName').value.trim();
     const service = document.getElementById('subService').value;
+    const deal = document.getElementById('subDeal').value.split(' ')[0];
     const params = {
       name,
       email: document.getElementById('email').value.trim(),
       service,
-      message: document.getElementById('subMsgText').value.trim() || '(sem mensagem)',
+      deal,
+      message: 'Contratação: ' + deal + '\n\n' + (document.getElementById('subMsgText').value.trim() || '(sem mensagem)'),
       date: new Date().toLocaleString('pt-BR', { dateStyle: 'long', timeStyle: 'short' })
     };
 
@@ -1312,7 +1322,7 @@
     btn.disabled = false;
     btn.textContent = label;
 
-    const text = 'Olá, Enzo! Sou ' + name + ' e acabei de enviar o formulário no site. Tenho interesse em: ' + service + '.';
+    const text = 'Olá, Enzo! Sou ' + name + ' e acabei de enviar o formulário no site. Tenho interesse em: ' + service + ' (' + deal.toLowerCase() + ').';
     document.getElementById('subDoneName').textContent = name.split(' ')[0];
     document.getElementById('subWa').href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(text);
     document.getElementById('sub').classList.add('sent');
