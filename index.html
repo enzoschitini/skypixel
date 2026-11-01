@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SkyPixel | Filmagem e Fotografia com Drone em 4K</title>
+<title>SkyPixel | Enzo Schitini, Filmagem e Fotografia com Drone em 4K</title>
 <link rel="icon" type="image/png" href="imgs/LogoSP.png">
 <link rel="apple-touch-icon" href="imgs/LogoSP.png">
-<meta name="description" content="Filmagens e fotos aéreas com drone para eventos, imóveis, obras e marcas. Piloto habilitado, edição profissional e entrega rápida. Peça seu orçamento.">
+<meta name="description" content="Filmagens e fotos aéreas com drone para eventos, imóveis, obras e marcas, por Enzo Schitini. Piloto habilitado, edição profissional e entrega rápida. Peça seu orçamento.">
 <script>(function(){try{var t=localStorage.getItem('skypixel-theme');if(!t)t='dark';document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
 <style>
   :root{
@@ -146,6 +146,24 @@
   .about-card{align-items:center;justify-content:center}
   .about-text{display:flex;flex-direction:column;justify-content:space-between;gap:20px;color:var(--text2);max-width:380px}
   .about-side{height:340px}
+  .avatar{display:inline-block;position:relative;overflow:hidden;border-radius:50%;flex:none;width:48px;height:48px;background:var(--ph);border:1px solid var(--line)}
+  .avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:37% 20%;transform:scale(2.4);transform-origin:37% 28%}
+  .byline{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+  .byline b{display:block;font-weight:600;font-size:15px}
+  .byline small{display:block;font-size:13px;color:var(--muted)}
+  .about-me{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:32px;align-items:center;margin-bottom:48px}
+  .about-me-photo{position:relative;overflow:hidden;border-radius:var(--radius);aspect-ratio:4/3;background:var(--ph)}
+  .about-me-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:37% 30%}
+  .about-me-text{display:flex;flex-direction:column;gap:16px;align-items:flex-start;color:var(--text2);max-width:520px}
+  .about-me-text h3{font-size:clamp(24px,2.4vw,36px);font-weight:500;letter-spacing:-.02em;color:var(--ink)}
+  .swap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:48px;align-items:center}
+  .swap h2{margin-bottom:20px}
+  .swap-text{color:var(--text2);max-width:540px;display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+  .swap-text .btn{margin-top:8px}
+  .swap .plan h3{font-size:18px;font-weight:600;margin-bottom:18px}
+  .foot-me{display:flex;align-items:center;gap:12px;margin-top:16px}
+  .foot-me b{display:block;font-weight:600;font-size:14px;color:var(--ink)}
+  .foot-me small{display:block;font-size:12px;color:var(--muted)}
   .arrows{display:flex;gap:10px}
 
   /* work */
@@ -324,7 +342,7 @@
     .modal-box{grid-template-columns:1fr;overflow:auto;max-height:calc(100vh - 24px)}
     .modal-img{min-height:0;height:auto;aspect-ratio:4/3}
     .modal-info{padding:24px 22px;overflow:visible}
-    .hero-grid,.about-slide,.faq-grid,.ins-grid,.svc-imgs{grid-template-columns:1fr}
+    .hero-grid,.about-slide,.about-me,.swap,.faq-grid,.ins-grid,.svc-imgs{grid-template-columns:1fr}
     .work-item{height:420px;flex-basis:80%}
     .svc{grid-template-columns:1fr;gap:16px}
     .strip ul{gap:18px;flex-wrap:wrap}
@@ -369,7 +387,7 @@
       </div>
       <div class="nav-actions">
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar entre tema claro e escuro" title="Claro / Escuro"><svg class="i-moon"><use href="#moon"/></svg><svg class="i-sun"><use href="#sun"/></svg></button>
-        <a href="#subscribe" class="btn btn-light">Fale Conosco</a>
+        <a href="#subscribe" class="btn btn-light">Fale comigo</a>
         <button class="burger" id="burger" aria-label="Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
       </div>
     </nav>
@@ -382,6 +400,7 @@
     <div class="wrap">
       <div class="hero-grid">
         <div>
+          <div class="byline"><span class="avatar"><img src="imgs/profile.jpg" alt="Enzo Schitini" width="96" height="96" decoding="async"></span><span><b>Enzo Schitini</b><small>Piloto de drone e editor · Salvador, BA</small></span></div>
           <h1>Seu mundo visto de cima. Imagens aéreas que fazem sua história ser lembrada.</h1>
           <p>Filmagens e fotos com drone em 4K para eventos, imóveis, obras e marcas. Planejamos, voamos e entregamos tudo editado, com piloto habilitado e equipamento segurado.</p>
           <a href="#subscribe" class="btn btn-dark">Peça seu orçamento <svg width="16" height="16"><use href="#arrow"/></svg></a>
@@ -433,15 +452,23 @@
   <!-- SOBRE -->
   <section class="about" id="about">
     <div class="wrap">
-      <span class="pill">Sobre a SkyPixel</span>
+      <span class="pill">Sobre mim</span>
       <h2 style="margin-bottom:0">— A lente que dá asas às suas histórias —</h2>
-      <h2 style="margin-top:16px">De comemorações a obras e campanhas de marca, unimos técnica, criatividade e segurança para entregar imagens aéreas que emocionam e valorizam o que você construiu.</h2>
+      <h2 style="margin-top:16px">De comemorações a obras e campanhas de marca, uno técnica, criatividade e segurança para entregar imagens aéreas que emocionam e valorizam o que você construiu.</h2>
+      <div class="about-me">
+        <div class="about-me-photo"><img src="imgs/profile.jpg" alt="Enzo Schitini segurando o controle do drone em um parque de Salvador" loading="lazy" decoding="async"></div>
+        <div class="about-me-text">
+          <h3>Oi, sou o Enzo Schitini.</h3>
+          <p>Sou piloto de drone e editor em Salvador. Sou eu quem conversa com você, planeja e faz o voo, trata as cores e edita cada imagem. Você fala direto comigo, do primeiro contato até a entrega.</p>
+          <a href="#subscribe" class="btn btn-dark">Fale comigo <svg width="16" height="16"><use href="#arrow"/></svg></a>
+        </div>
+      </div>
       <div class="about-slider" id="aboutSlider">
         <div class="about-slide on">
           <div class="about-card"><svg width="44" height="44" style="color:#777;opacity:.7"><use href="#img"/></svg><img data-photo="4" data-remote="productions/dji_fly_20251227_173008_412_1766867565932_photo_optimized.jpg" alt="" loading="lazy" decoding="async"></div>
           <div class="about-right">
             <div class="about-text">
-              <p>Guiados por criatividade, precisão e paixão por voar, transformamos lugares e momentos em imagens que ficam. Cada voo é planejado para mostrar o que só o céu revela.</p>
+              <p>Guiado por criatividade, precisão e gosto por voar, transformo lugares e momentos em imagens que ficam. Cada voo é planejado para mostrar o que só o céu revela.</p>
               <div class="about-nav">
                 <div class="arrows">
                   <button class="round light" data-dir="-1" aria-label="Anterior"><svg width="16" height="16"><use href="#left"/></svg></button>
@@ -457,7 +484,7 @@
           <div class="about-card"><svg width="44" height="44" style="color:#777;opacity:.7"><use href="#img"/></svg><img data-photo="6" data-remote="productions/dji_fly_20260711_172150_11_1783801541235_photo_optimized.jpg" alt="" loading="lazy" decoding="async"></div>
           <div class="about-right">
             <div class="about-text">
-              <p>Todo projeto começa com uma conversa. Ouvimos sua ideia, visitamos o local, estudamos a luz e o clima e criamos um plano de voo que combina com a sua história.</p>
+              <p>Todo projeto começa com uma conversa. Eu ouço sua ideia, visito o local, estudo a luz e o clima e crio um plano de voo que combina com a sua história.</p>
               <div class="about-nav">
                 <div class="arrows">
                   <button class="round light" data-dir="-1" aria-label="Anterior"><svg width="16" height="16"><use href="#left"/></svg></button>
@@ -473,7 +500,7 @@
           <div class="about-card"><svg width="44" height="44" style="color:#777;opacity:.7"><use href="#img"/></svg><img data-photo="8" data-remote="productions/Screenshot_20260906-213818_Gallery%20(3).jpg" alt="" loading="lazy" decoding="async"></div>
           <div class="about-right">
             <div class="about-text">
-              <p>Do primeiro voo à galeria final, cuidamos de cada detalhe: operação segura, cor tratada e edição cuidadosa, para que cada imagem carregue a emoção do momento.</p>
+              <p>Do primeiro voo à galeria final, cuido de cada detalhe: operação segura, cor tratada e edição cuidadosa, para que cada imagem carregue a emoção do momento.</p>
               <div class="about-nav">
                 <div class="arrows">
                   <button class="round light" data-dir="-1" aria-label="Anterior"><svg width="16" height="16"><use href="#left"/></svg></button>
@@ -492,7 +519,7 @@
   <!-- TRABALHOS -->
   <section id="work">
     <div class="wrap">
-      <span class="pill">Nossos Trabalhos</span>
+      <span class="pill">Meus Trabalhos</span>
       <div class="head-row">
         <h2>Onde cada quadro fala<br>e cada detalhe inspira</h2>
         <button type="button" class="btn btn-light" id="workMore" aria-haspopup="dialog" aria-controls="allModal">Ver mais <span class="round" style="width:28px;height:28px"><svg width="14" height="14"><use href="#arrow"/></svg></span></button>
@@ -518,16 +545,16 @@
   <!-- SERVIÇOS -->
   <section id="services">
     <div class="wrap">
-      <span class="pill">Nossos Serviços</span>
+      <span class="pill">Meus Serviços</span>
       <div class="head-row">
-        <h2>Damos vida à sua visão,<br>um voo de cada vez</h2>
+        <h2>Levo sua visão ao alto,<br>um voo de cada vez</h2>
       </div>
 
-      <div class="svc-item" id="service-event" data-text="eventos e shows registre a grandiosidade dos seus eventos com imagens aereas que contam uma historia. seja um casamento, uma formatura ou um grande show, garantimos que cada momento importante seja eternizado de forma cinematografica. casamentos shows formaturas momentosdoalto casamento ao por do sol festa de aniversario formatura ao ar livre show e festival inauguracao">
+      <div class="svc-item" id="service-event" data-text="eventos e shows registre a grandiosidade dos seus eventos com imagens aereas que contam uma historia. seja um casamento, uma formatura ou um grande show, garanto que cada momento importante seja eternizado de forma cinematografica. casamentos shows formaturas momentosdoalto casamento ao por do sol festa de aniversario formatura ao ar livre show e festival inauguracao">
         <div class="svc">
           <h3>Eventos e Shows</h3>
           <div>
-            <p>Registre a grandiosidade dos seus eventos com imagens aéreas que contam uma história. Seja um casamento, uma formatura ou um grande show, garantimos que cada momento importante seja eternizado de forma cinematográfica.</p>
+            <p>Registre a grandiosidade dos seus eventos com imagens aéreas que contam uma história. Seja um casamento, uma formatura ou um grande show, garanto que cada momento importante seja eternizado de forma cinematográfica.</p>
             <div class="chips"><span class="chip">Casamentos</span><span class="chip">Shows</span><span class="chip">Formaturas</span><span class="chip">MomentosDoAlto</span></div>
           </div>
           <button type="button" class="btn btn-light svc-more" aria-expanded="false" aria-controls="gal3"><span>Ver mais</span></button>
@@ -546,11 +573,11 @@
           </div>
         </div>
       </div>
-      <div class="svc-item" id="service-advertising" data-text="publicidade e comerciais leve a sua marca a outro nivel com imagens aereas que prendem a atencao e geram engajamento. de campanhas a videos institucionais, garantimos que cada cena reforce a identidade do seu negocio. campanhas institucional redessociais marcanoalto campanha de marca video institucional conteudo para redes fabrica e centro de distribuicao produto ao ar livre">
+      <div class="svc-item" id="service-advertising" data-text="publicidade e comerciais leve a sua marca a outro nivel com imagens aereas que prendem a atencao e geram engajamento. de campanhas a videos institucionais, garanto que cada cena reforce a identidade do seu negocio. campanhas institucional redessociais marcanoalto campanha de marca video institucional conteudo para redes fabrica e centro de distribuicao produto ao ar livre">
         <div class="svc">
           <h3>Publicidade e Comerciais</h3>
           <div>
-            <p>Leve a sua marca a outro nível com imagens aéreas que prendem a atenção e geram engajamento. De campanhas a vídeos institucionais, garantimos que cada cena reforce a identidade do seu negócio.</p>
+            <p>Leve a sua marca a outro nível com imagens aéreas que prendem a atenção e geram engajamento. De campanhas a vídeos institucionais, garanto que cada cena reforce a identidade do seu negócio.</p>
             <div class="chips"><span class="chip">Campanhas</span><span class="chip">Institucional</span><span class="chip">RedesSociais</span><span class="chip">MarcaNoAlto</span></div>
           </div>
           <button type="button" class="btn btn-light svc-more" aria-expanded="false" aria-controls="gal4"><span>Ver mais</span></button>
@@ -569,11 +596,11 @@
           </div>
         </div>
       </div>
-      <div class="svc-item" id="service-tourism" data-text="turismo e hospitalidade mostre o seu empreendimento pelo melhor angulo e atraia mais visitantes com imagens que inspiram a viagem. seja um hotel, uma pousada ou um parque, garantimos que o seu diferencial seja visto antes mesmo da chegada. hoteis pousadas parques destinovistodecima pousada entre as arvores hotel a beira-mar sitio de lazer camping ao amanhecer parque e atracoes">
+      <div class="svc-item" id="service-tourism" data-text="turismo e hospitalidade mostre o seu empreendimento pelo melhor angulo e atraia mais visitantes com imagens que inspiram a viagem. seja um hotel, uma pousada ou um parque, garanto que o seu diferencial seja visto antes mesmo da chegada. hoteis pousadas parques destinovistodecima pousada entre as arvores hotel a beira-mar sitio de lazer camping ao amanhecer parque e atracoes">
         <div class="svc">
           <h3>Turismo e Hospitalidade</h3>
           <div>
-            <p>Mostre o seu empreendimento pelo melhor ângulo e atraia mais visitantes com imagens que inspiram a viagem. Seja um hotel, uma pousada ou um parque, garantimos que o seu diferencial seja visto antes mesmo da chegada.</p>
+            <p>Mostre o seu empreendimento pelo melhor ângulo e atraia mais visitantes com imagens que inspiram a viagem. Seja um hotel, uma pousada ou um parque, garanto que o seu diferencial seja visto antes mesmo da chegada.</p>
             <div class="chips"><span class="chip">Hotéis</span><span class="chip">Pousadas</span><span class="chip">Parques</span><span class="chip">DestinoVistoDeCima</span></div>
           </div>
           <button type="button" class="btn btn-light svc-more" aria-expanded="false" aria-controls="gal6"><span>Ver mais</span></button>
@@ -596,11 +623,11 @@
           </div>
         </div>
       </div>
-      <div class="svc-item" id="service-realestate" data-text="mercado imobiliario destaque seu imovel com imagens aereas e terrestres que valorizam cada detalhe. seja um empreendimento, um loteamento ou uma casa para venda ou locacao, garantimos que ele seja visto do jeito que merece. imoveis loteamentos lancamentos vistadosandares lancamento de loteamento vista real dos andares condominio completo casa para locacao terreno e localizacao">
+      <div class="svc-item" id="service-realestate" data-text="mercado imobiliario destaque seu imovel com imagens aereas e terrestres que valorizam cada detalhe. seja um empreendimento, um loteamento ou uma casa para venda ou locacao, garanto que ele seja visto do jeito que merece. imoveis loteamentos lancamentos vistadosandares lancamento de loteamento vista real dos andares condominio completo casa para locacao terreno e localizacao">
         <div class="svc">
           <h3>Mercado Imobiliário</h3>
           <div>
-            <p>Destaque seu imóvel com imagens aéreas e terrestres que valorizam cada detalhe. Seja um empreendimento, um loteamento ou uma casa para venda ou locação, garantimos que ele seja visto do jeito que merece.</p>
+            <p>Destaque seu imóvel com imagens aéreas e terrestres que valorizam cada detalhe. Seja um empreendimento, um loteamento ou uma casa para venda ou locação, garanto que ele seja visto do jeito que merece.</p>
             <div class="chips"><span class="chip">Imóveis</span><span class="chip">Loteamentos</span><span class="chip">Lançamentos</span><span class="chip">VistaDosAndares</span></div>
           </div>
           <button type="button" class="btn btn-light svc-more" aria-expanded="false" aria-controls="gal2"><span>Ver mais</span></button>
@@ -621,11 +648,11 @@
           </div>
         </div>
       </div>
-      <div class="svc-item" id="service-construction" data-text="construcao civil e engenharia acompanhe cada etapa da sua obra e inspecione estruturas com imagens aereas nitidas, sem andaimes e sem risco para as equipes. seja o avanco de um canteiro, uma fachada ou uma torre, garantimos registros precisos para decisoes mais seguras. obras inspecoes laudos medicoes obra vista do alto fachada sem andaimes telhado de galpao silos e reservatorios torres e linhas de energia">
+      <div class="svc-item" id="service-construction" data-text="construcao civil e engenharia acompanhe cada etapa da sua obra e inspecione estruturas com imagens aereas nitidas, sem andaimes e sem risco para as equipes. seja o avanco de um canteiro, uma fachada ou uma torre, garanto registros precisos para decisoes mais seguras. obras inspecoes laudos medicoes obra vista do alto fachada sem andaimes telhado de galpao silos e reservatorios torres e linhas de energia">
         <div class="svc">
           <h3>Construção Civil e Engenharia</h3>
           <div>
-            <p>Acompanhe cada etapa da sua obra e inspecione estruturas com imagens aéreas nítidas, sem andaimes e sem risco para as equipes. Seja o avanço de um canteiro, uma fachada ou uma torre, garantimos registros precisos para decisões mais seguras.</p>
+            <p>Acompanhe cada etapa da sua obra e inspecione estruturas com imagens aéreas nítidas, sem andaimes e sem risco para as equipes. Seja o avanço de um canteiro, uma fachada ou uma torre, garanto registros precisos para decisões mais seguras.</p>
             <div class="chips"><span class="chip">Obras</span><span class="chip">Inspeções</span><span class="chip">Laudos</span><span class="chip">Medições</span></div>
           </div>
           <button type="button" class="btn btn-light svc-more" aria-expanded="false" aria-controls="gal1"><span>Ver mais</span></button>
@@ -644,11 +671,11 @@
           </div>
         </div>
       </div>
-      <div class="svc-item" id="service-news" data-text="cobertura jornalistica de escala, contexto e impacto as suas reportagens com imagens de drone que nenhuma camera no chao alcanca. de grandes obras a emergencias, garantimos agilidade e seguranca em cada cobertura. reportagens documentarios emergencias imagemdeimpacto grande obra urbana enchente em tempo real reportagem especial documentario aereo evento de grande porte">
+      <div class="svc-item" id="service-news" data-text="cobertura jornalistica de escala, contexto e impacto as suas reportagens com imagens de drone que nenhuma camera no chao alcanca. de grandes obras a emergencias, garanto agilidade e seguranca em cada cobertura. reportagens documentarios emergencias imagemdeimpacto grande obra urbana enchente em tempo real reportagem especial documentario aereo evento de grande porte">
         <div class="svc">
           <h3>Cobertura Jornalística</h3>
           <div>
-            <p>Dê escala, contexto e impacto às suas reportagens com imagens de drone que nenhuma câmera no chão alcança. De grandes obras a emergências, garantimos agilidade e segurança em cada cobertura.</p>
+            <p>Dê escala, contexto e impacto às suas reportagens com imagens de drone que nenhuma câmera no chão alcança. De grandes obras a emergências, garanto agilidade e segurança em cada cobertura.</p>
             <div class="chips"><span class="chip">Reportagens</span><span class="chip">Documentários</span><span class="chip">Emergências</span><span class="chip">ImagemDeImpacto</span></div>
           </div>
           <button type="button" class="btn btn-light svc-more" aria-expanded="false" aria-controls="gal5"><span>Ver mais</span></button>
@@ -676,7 +703,7 @@
     <div class="wrap">
       <div class="testi-head">
         <span class="pill">Depoimentos</span>
-        <h2>Veja a diferença<br>que fazemos</h2>
+        <h2>Veja a diferença<br>nos resultados</h2>
       </div>
       <div class="testi-stack">
         <div class="testi-layer l1"></div>
@@ -713,15 +740,15 @@
   <!-- INSIGHTS -->
   <section id="insights">
     <div class="wrap">
-      <span class="pill">Insights SkyPixel</span>
+      <span class="pill">Bastidores do voo</span>
       <div class="head-row">
         <h2>Olhe além da lente e descubra<br>a história por trás da imagem</h2>
         <a href="#work" class="btn btn-light">Ver material <span class="round" style="width:28px;height:28px"><svg width="14" height="14"><use href="#arrow"/></svg></span></a>
       </div>
       <div class="ins-grid">
-        <a href="#" class="ins-card"><div class="ph"><svg><use href="#img"/></svg><img data-photo="10" data-remote="productions/insight-planejamento.jpg" alt="" loading="lazy" decoding="async"></div><h3>Planejar o voo é metade da imagem</h3><p>Da escolha do local, da luz e do clima à autorização e ao roteiro: todo o planejamento acontece antes de o drone decolar.</p><template class="ins-full"><p>Uma boa imagem aérea começa muito antes de o drone sair do chão. Primeiro entendemos o objetivo do projeto: o que a imagem precisa mostrar, para quem e onde ela será usada.</p><p>Depois vem a escolha do local e do horário. A direção e a altura do sol mudam completamente o resultado: a luz suave do início da manhã e do fim da tarde valoriza texturas e cores, enquanto o sol a pino achata a cena. Também checamos a previsão de vento, chuva e visibilidade.</p><p>Em seguida cuidamos da parte legal e de segurança: consulta ao espaço aéreo, autorização de voo quando necessária, drone cadastrado, piloto habilitado e equipamento segurado. Por fim, definimos o roteiro de tomadas, com os movimentos de câmera, alturas e ângulos, para aproveitar bem cada bateria.</p><p>Com tudo isso resolvido, o voo é rápido, seguro e entrega exatamente o que foi combinado.</p></template></a>
-        <a href="#" class="ins-card"><div class="ph"><svg><use href="#img"/></svg><img data-photo="11" data-remote="productions/insight-color-grading.jpg" alt="" loading="lazy" decoding="async"></div><h3>Color Grading</h3><p>Do material bruto à imagem final: veja como recuperamos e valorizamos as cores de cada cena.</p><template class="ins-full"><p>O material que sai do drone é gravado em perfil plano, com cores e contraste neutros, justamente para preservar o máximo de informação. Por isso a imagem bruta parece apagada: ela ainda não está finalizada.</p><p>No color grading, começamos corrigindo o que a câmera não consegue acertar sozinha: balanço de branco, exposição, sombras e realces. Depois recuperamos o verde da vegetação, o azul da água e o tom natural da pele e dos materiais.</p><p>Só então entra o estilo: ajustamos contraste, saturação e atmosfera para que a imagem tenha a identidade visual do projeto e mantenha a mesma cara do início ao fim, de uma tomada para a outra.</p><p>No comparativo, à esquerda está o resultado final e, à direita, o material bruto da mesma cena.</p></template></a>
-        <a href="#" class="ins-card"><div class="ph"><svg><use href="#img"/></svg><img data-photo="9" data-remote="productions/insight-contar-historias.jpg" alt="" loading="lazy" decoding="async"></div><h3>O poder de contar histórias do alto</h3><p>Do entendimento do projeto com o cliente até a identidade da mídia, cada imagem aérea tem uma história para contar.</p><template class="ins-full"><p>Uma imagem aérea bonita chama atenção, mas uma imagem aérea com propósito conta uma história. O ponto de vista do alto mostra relações que o nível do chão não alcança: como um condomínio se encaixa na paisagem, a escala de uma obra, o caminho até um destino.</p><p>Por isso o trabalho começa conversando com o cliente para entender o projeto, o público e a mensagem. A partir daí definimos o que mostrar, em que ordem e com qual ritmo, seja em uma foto única ou em um vídeo completo.</p><p>O resultado é uma mídia com identidade própria, que valoriza o seu empreendimento e faz o espectador enxergar o lugar como você enxerga.</p></template></a>
+        <a href="#" class="ins-card"><div class="ph"><svg><use href="#img"/></svg><img data-photo="10" data-remote="productions/insight-planejamento.jpg" alt="" loading="lazy" decoding="async"></div><h3>Planejar o voo é metade da imagem</h3><p>Da escolha do local, da luz e do clima à autorização e ao roteiro: todo o planejamento acontece antes de o drone decolar.</p><template class="ins-full"><p>Uma boa imagem aérea começa muito antes de o drone sair do chão. Primeiro eu entendo o objetivo do projeto: o que a imagem precisa mostrar, para quem e onde ela será usada.</p><p>Depois vem a escolha do local e do horário. A direção e a altura do sol mudam completamente o resultado: a luz suave do início da manhã e do fim da tarde valoriza texturas e cores, enquanto o sol a pino achata a cena. Também checo a previsão de vento, chuva e visibilidade.</p><p>Em seguida cuido da parte legal e de segurança: consulta ao espaço aéreo, autorização de voo quando necessária, drone cadastrado, piloto habilitado e equipamento segurado. Por fim, defino o roteiro de tomadas, com os movimentos de câmera, alturas e ângulos, para aproveitar bem cada bateria.</p><p>Com tudo isso resolvido, o voo é rápido, seguro e entrega exatamente o que foi combinado.</p></template></a>
+        <a href="#" class="ins-card"><div class="ph"><svg><use href="#img"/></svg><img data-photo="11" data-remote="productions/insight-color-grading.jpg" alt="" loading="lazy" decoding="async"></div><h3>Color Grading</h3><p>Do material bruto à imagem final: veja como eu recupero e valorizo as cores de cada cena.</p><template class="ins-full"><p>O material que sai do drone é gravado em perfil plano, com cores e contraste neutros, justamente para preservar o máximo de informação. Por isso a imagem bruta parece apagada: ela ainda não está finalizada.</p><p>No color grading, começo corrigindo o que a câmera não consegue acertar sozinha: balanço de branco, exposição, sombras e realces. Depois recupero o verde da vegetação, o azul da água e o tom natural da pele e dos materiais.</p><p>Só então entra o estilo: ajusto contraste, saturação e atmosfera para que a imagem tenha a identidade visual do projeto e mantenha a mesma cara do início ao fim, de uma tomada para a outra.</p><p>No comparativo, à esquerda está o resultado final e, à direita, o material bruto da mesma cena.</p></template></a>
+        <a href="#" class="ins-card"><div class="ph"><svg><use href="#img"/></svg><img data-photo="9" data-remote="productions/insight-contar-historias.jpg" alt="" loading="lazy" decoding="async"></div><h3>O poder de contar histórias do alto</h3><p>Do entendimento do projeto com o cliente até a identidade da mídia, cada imagem aérea tem uma história para contar.</p><template class="ins-full"><p>Uma imagem aérea bonita chama atenção, mas uma imagem aérea com propósito conta uma história. O ponto de vista do alto mostra relações que o nível do chão não alcança: como um condomínio se encaixa na paisagem, a escala de uma obra, o caminho até um destino.</p><p>Por isso o trabalho começa conversando com o cliente para entender o projeto, o público e a mensagem. A partir daí defino o que mostrar, em que ordem e com qual ritmo, seja em uma foto única ou em um vídeo completo.</p><p>O resultado é uma mídia com identidade própria, que valoriza o seu empreendimento e faz o espectador enxergar o lugar como você enxerga.</p></template></a>
       </div>
     </div>
   </section>
@@ -746,12 +773,13 @@
             <li>Equipamento segurado</li>
             <li>Arquivos enviados por link para download</li>
             <li>Entrega em até 24h</li>
+            <li>Deslocamento não incluso: combinado conforme o local</li>
           </ul>
         </div>
         <div class="plan featured">
           <span class="plan-badge">Mais escolhido</span>
           <div class="plan-top"><div class="price">R$ 499 <small>preço fechado, por kit</small></div><span class="chip">SkyKit</span></div>
-          <p class="desc">O jeito mais simples de ter imagens aéreas profissionais. Você escolhe o local, a gente cuida do resto.</p>
+          <p class="desc">O jeito mais simples de ter imagens aéreas profissionais. Você escolhe o local, eu cuido do resto.</p>
           <div class="plan-btns"><a href="#subscribe" class="btn btn-dark">Quero meu SkyKit</a></div>
           <ul>
             <li>1 local</li>
@@ -760,8 +788,8 @@
             <li>Gravação em 4K e fotos em alta resolução</li>
             <li>Correção de cor (Color Grading)</li>
             <li>Edição dos vídeos</li>
-            <li>Nós criamos o roteiro</li>
-            <li>Entrega em até 10 dias</li>
+            <li>Eu crio o roteiro</li>
+            <li>Entrega em até 10 dias úteis</li>
           </ul>
         </div>
         <div class="plan">
@@ -780,8 +808,34 @@
           </ul>
         </div>
       </div>
-      <p class="price-note">Não sabe qual escolher? Fale com a gente e indicamos o melhor plano para o seu caso.</p>
+      <p class="price-note">Não sabe qual escolher? Fale comigo e eu indico o melhor plano para o seu caso.</p>
       <p class="price-safe">Piloto habilitado, drone cadastrado e voos autorizados nos órgãos competentes (ANAC, DECEA e ANATEL).</p>
+    </div>
+  </section>
+
+  <!-- PERMUTA -->
+  <section id="swap">
+    <div class="wrap">
+      <div class="swap">
+        <div>
+          <span class="pill">Permuta</span>
+          <h2>Tem uma pousada, hotel<br>ou restaurante? Vamos trocar.</h2>
+          <div class="swap-text">
+            <p>Também faço imagens por hobby. Se o seu negócio é uma pousada, um hotel, um restaurante ou algo parecido, posso gravar e fotografar o seu espaço em troca de um serviço seu, como uma hospedagem, uma refeição ou uma experiência.</p>
+            <p>Sou flexível: cada permuta é combinada de acordo com o seu negócio e com o que faz sentido para os dois lados.</p>
+            <a href="#subscribe" class="btn btn-dark">Propor uma permuta <svg width="16" height="16"><use href="#arrow"/></svg></a>
+          </div>
+        </div>
+        <div class="plan">
+          <h3>Como funciona</h3>
+          <ul>
+            <li>Eu faço fotos e vídeos aéreos do seu espaço</li>
+            <li>Você oferece em troca um serviço do seu negócio</li>
+            <li>O que entra na troca é combinado antes, caso a caso</li>
+            <li>Sujeito à minha disponibilidade de agenda</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -791,22 +845,22 @@
       <span class="pill">Dúvidas</span>
       <div class="head-row">
         <h2>Perguntas<br>frequentes</h2>
-        <a href="#subscribe" class="btn btn-light">Fale Conosco <span class="round" style="width:28px;height:28px"><svg width="14" height="14"><use href="#arrow"/></svg></span></a>
+        <a href="#subscribe" class="btn btn-light">Fale comigo <span class="round" style="width:28px;height:28px"><svg width="14" height="14"><use href="#arrow"/></svg></span></a>
       </div>
       <div class="faq-grid">
         <div class="col" style="display:grid;gap:16px">
           <div class="faq"><button><span>Qual plano é o melhor para mim?</span><span class="round"><svg width="16" height="16"><use href="#plus"/></svg></span></button><div class="ans"><p>Se você quer receber tudo pronto, escolha o SkyKit. Se tem um projeto maior, com roteiro próprio e ajustes, escolha o Pro. Se só precisa do material bruto, escolha o Start.</p></div></div>
           <div class="faq"><button><span>Como funciona a cobrança por hora?</span><span class="round"><svg width="16" height="16"><use href="#plus"/></svg></span></button><div class="ans"><p>No Start e no Pro, você paga pelas horas de trabalho contratadas. O SkyKit tem preço fechado, sem contar horas.</p></div></div>
-          <div class="faq"><button><span>O que é o SkyKit?</span><span class="round"><svg width="16" height="16"><use href="#plus"/></svg></span></button><div class="ans"><p>É um pacote pronto: 1 local, até 10 fotos e até 2 vídeos com correção de cor e edição. Nós criamos o roteiro, você só escolhe o lugar.</p></div></div>
-          <div class="faq"><button><span>Posso criar meu próprio roteiro?</span><span class="round"><svg width="16" height="16"><use href="#plus"/></svg></span></button><div class="ans"><p>Sim, nos planos Start e Pro. No SkyKit, o roteiro é nosso, e você aprova antes do voo.</p></div></div>
+          <div class="faq"><button><span>O que é o SkyKit?</span><span class="round"><svg width="16" height="16"><use href="#plus"/></svg></span></button><div class="ans"><p>É um pacote pronto: 1 local, até 10 fotos e até 2 vídeos com correção de cor e edição. Eu crio o roteiro, você só escolhe o lugar.</p></div></div>
+          <div class="faq"><button><span>Posso criar meu próprio roteiro?</span><span class="round"><svg width="16" height="16"><use href="#plus"/></svg></span></button><div class="ans"><p>Sim, nos planos Start e Pro. No SkyKit, o roteiro é meu, e você aprova antes do voo.</p></div></div>
           <div class="faq"><button><span>No Start, as imagens vêm editadas?</span><span class="round"><svg width="16" height="16"><use href="#plus"/></svg></span></button><div class="ans"><p>Não. O Start entrega vídeos e fotos brutos, em até 24h. Para ter edição, escolha o SkyKit ou o Pro.</p></div></div>
         </div>
         <div class="col" style="display:grid;gap:16px">
-          <div class="faq"><button><span>Posso pedir mudanças na edição?</span><span class="round"><svg width="16" height="16"><use href="#plus"/></svg></span></button><div class="ans"><p>No Pro, sim: fazemos ajustes até você aprovar. No SkyKit, a edição já vem fechada, com uma rodada de ajustes simples.</p></div></div>
-          <div class="faq"><button><span>Com quanto tempo de antecedência devo contratar?</span><span class="round"><svg width="16" height="16"><use href="#plus"/></svg></span></button><div class="ans"><p>Recomendamos de 2 a 3 semanas, principalmente em fins de semana e alta temporada. Também aceitamos pedidos de última hora, conforme nossa agenda.</p></div></div>
-          <div class="faq"><button><span>O voo precisa de autorização?</span><span class="round"><svg width="16" height="16"><use href="#plus"/></svg></span></button><div class="ans"><p>Cuidamos da parte burocrática e das regras de segurança. Em locais com restrição, avisamos antes de fechar o serviço.</p></div></div>
-          <div class="faq"><button><span>E se o tempo estiver ruim no dia?</span><span class="round"><svg width="16" height="16"><use href="#plus"/></svg></span></button><div class="ans"><p>Drone depende do clima. Se chuva ou vento forte impedirem o voo, remarcamos sem custo adicional.</p></div></div>
-          <div class="faq"><button><span>O que vestir em um ensaio aéreo?</span><span class="round"><svg width="16" height="16"><use href="#plus"/></svg></span></button><div class="ans"><p>Roupas confortáveis em cores lisas que contrastem com o cenário, como tons claros na praia ou no campo. Enviamos um guia rápido após a contratação.</p></div></div>
+          <div class="faq"><button><span>Posso pedir mudanças na edição?</span><span class="round"><svg width="16" height="16"><use href="#plus"/></svg></span></button><div class="ans"><p>No Pro, sim: faço ajustes até você aprovar. No SkyKit, a edição já vem fechada, com uma rodada de ajustes simples.</p></div></div>
+          <div class="faq"><button><span>Com quanto tempo de antecedência devo contratar?</span><span class="round"><svg width="16" height="16"><use href="#plus"/></svg></span></button><div class="ans"><p>Recomendo de 2 a 3 semanas, principalmente em fins de semana e alta temporada. Também aceito pedidos de última hora, conforme minha agenda.</p></div></div>
+          <div class="faq"><button><span>O voo precisa de autorização?</span><span class="round"><svg width="16" height="16"><use href="#plus"/></svg></span></button><div class="ans"><p>Eu cuido da parte burocrática e das regras de segurança. Em locais com restrição, aviso antes de fechar o serviço.</p></div></div>
+          <div class="faq"><button><span>E se o tempo estiver ruim no dia?</span><span class="round"><svg width="16" height="16"><use href="#plus"/></svg></span></button><div class="ans"><p>Drone depende do clima. Se chuva ou vento forte impedirem o voo, remarco sem custo adicional.</p></div></div>
+          <div class="faq"><button><span>O que vestir em um ensaio aéreo?</span><span class="round"><svg width="16" height="16"><use href="#plus"/></svg></span></button><div class="ans"><p>Roupas confortáveis em cores lisas que contrastem com o cenário, como tons claros na praia ou no campo. Envio um guia rápido após a contratação.</p></div></div>
         </div>
       </div>
     </div>
@@ -816,10 +870,10 @@
   <section id="subscribe">
     <div class="wrap">
       <div class="sub" id="sub">
-        <div class="sub-img"><p>Deixe-nos levar sua ideia para o alto, um voo de cada vez.</p></div>
+        <div class="sub-img"><p>Deixe-me levar sua ideia para o alto, um voo de cada vez.</p></div>
         <div class="sub-form">
           <h2 class="sub-title">Vamos tirar seu projeto do chão?</h2>
-          <p class="lead">Conte um pouco sobre seu projeto e retornamos com uma proposta.</p>
+          <p class="lead">Conte um pouco sobre seu projeto e eu volto com uma proposta.</p>
           <form id="subForm">
             <label>Nome<input type="text" id="subName" required autocomplete="name" placeholder="Seu nome"></label>
             <label>E-mail<input type="email" id="email" required autocomplete="email" placeholder="voce@exemplo.com"></label>
@@ -839,8 +893,8 @@
             <button class="btn" type="submit">Enviar</button>
           </form>
           <div class="sub-done" id="subDone" role="status" aria-live="polite">
-            <h3>Recebemos sua mensagem, <span id="subDoneName"></span>!</h3>
-            <p>Em breve entraremos em contato. Se preferir agilizar, fale com a gente agora pelo WhatsApp.</p>
+            <h3>Recebi sua mensagem, <span id="subDoneName"></span>!</h3>
+            <p>Em breve eu entro em contato. Se preferir agilizar, fale comigo agora pelo WhatsApp.</p>
             <a class="btn" id="subWa" href="#" target="_blank" rel="noopener">Conversar no WhatsApp</a>
           </div>
         </div>
@@ -853,15 +907,14 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="logo">SKYPIXEL</div>
-        <p>Seu mundo visto de cima. Imagens aéreas que fazem sua história ser lembrada.</p>
+        <div class="logo">SKYPIXEL</div>        <p>Seu mundo visto de cima. Imagens aéreas que fazem sua história ser lembrada.</p>
         <a href="https://wa.me/557186841489?s=t" class="btn btn-wpp" target="_blank" rel="noopener" style="margin-top:18px">Fale no WhatsApp <span class="round" style="width:28px;height:28px"><svg width="14" height="14"><use href="#arrow"/></svg></span></a>
       </div>
-      <div><h4>Nossos serviços</h4><ul><li><a href="#service-event">Eventos e Shows</a></li><li><a href="#service-advertising">Publicidade e Comerciais</a></li><li><a href="#service-tourism">Turismo e Hospitalidade</a></li><li><a href="#service-realestate">Mercado Imobiliário</a></li><li><a href="#service-construction">Construção Civil e Engenharia</a></li><li><a href="#service-news">Cobertura Jornalística</a></li></ul></div>
-      <div><h4>Sobre</h4><ul><li><a href="#about">Sobre nós</a></li><li><a href="#work">Nossos trabalhos</a></li><li><a href="#testimonials">Depoimentos</a></li><li><a href="#insights">Insights SkyPixel</a></li></ul></div>
-      <div><h4>Outros</h4><ul><li><a href="#pricing">Planos</a></li><li><a href="#faq">Dúvidas</a></li></ul></div>
+      <div><h4>Meus serviços</h4><ul><li><a href="#service-event">Eventos e Shows</a></li><li><a href="#service-advertising">Publicidade e Comerciais</a></li><li><a href="#service-tourism">Turismo e Hospitalidade</a></li><li><a href="#service-realestate">Mercado Imobiliário</a></li><li><a href="#service-construction">Construção Civil e Engenharia</a></li><li><a href="#service-news">Cobertura Jornalística</a></li></ul></div>
+      <div><h4>Sobre</h4><ul><li><a href="#about">Sobre mim</a></li><li><a href="#work">Meus trabalhos</a></li><li><a href="#testimonials">Depoimentos</a></li><li><a href="#insights">Bastidores do voo</a></li></ul></div>
+      <div><h4>Outros</h4><ul><li><a href="#pricing">Planos</a></li><li><a href="#swap">Permuta</a></li><li><a href="#faq">Dúvidas</a></li></ul><div class="foot-me"><span class="avatar"><img src="imgs/profile.jpg" alt="Enzo Schitini" width="96" height="96" decoding="async"></span><span><b>Enzo Schitini</b><small>Piloto de drone e editor</small></span></div></div>
     </div>
-    <div class="foot-bottom"><span>Localizados em Salvador, BA</span><span>© 2026 SKYPIXEL. Todos os direitos reservados.</span></div>
+    <div class="foot-bottom"><span>Localizado em Salvador, BA</span><span>© 2026 SKYPIXEL · Enzo Schitini. Todos os direitos reservados.</span></div>
   </div>
 </footer>
 
@@ -1008,7 +1061,7 @@
   function fillModal(){
     const it = mList[mIdx];
     if (it.classList.contains('ins-card')) {
-      mTag.textContent = 'Insights SkyPixel';
+      mTag.textContent = 'Bastidores do voo';
       mTitle.textContent = it.querySelector('h3').textContent;
       const full = it.querySelector('template.ins-full');
       mDesc.innerHTML = full ? full.innerHTML : '';
@@ -1175,7 +1228,7 @@
   heroH1.innerHTML = heroH1.textContent.trim().split(/\s+/).map((w, i) =>
     '<span class="w" aria-hidden="true"><span style="--i:' + i + '">' + w + '</span></span>').join(' ');
 
-  // scroll reveal: from "Sobre a SkyPixel" down
+  // scroll reveal: from "Sobre mim" down
   if ('IntersectionObserver' in window) {
     const targets = [];
     document.querySelectorAll('#about .wrap, #work .wrap, #services .wrap, #testimonials .wrap, #insights .wrap, #pricing .wrap, #faq .wrap, #subscribe .wrap').forEach(w => {
@@ -1234,7 +1287,7 @@
 
     if ([EMAILJS_PUBLIC_KEY, EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_OWNER].some(v => v.startsWith('COLE_'))) {
       console.error('EmailJS: preencha as constantes EMAILJS_* no index.html');
-      alert('Envio ainda não configurado. Fale conosco pelo WhatsApp.');
+      alert('Envio ainda não configurado. Fale comigo pelo WhatsApp.');
       return;
     }
 
@@ -1253,13 +1306,13 @@
       console.error('EmailJS:', err && (err.text || err.message) || err);
       btn.disabled = false;
       btn.textContent = label;
-      alert('Não foi possível enviar agora. Tente novamente ou fale conosco pelo WhatsApp.');
+      alert('Não foi possível enviar agora. Tente novamente ou fale comigo pelo WhatsApp.');
       return;
     }
     btn.disabled = false;
     btn.textContent = label;
 
-    const text = 'Olá! Sou ' + name + ' e acabei de enviar o formulário no site. Tenho interesse em: ' + service + '.';
+    const text = 'Olá, Enzo! Sou ' + name + ' e acabei de enviar o formulário no site. Tenho interesse em: ' + service + '.';
     document.getElementById('subDoneName').textContent = name.split(' ')[0];
     document.getElementById('subWa').href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(text);
     document.getElementById('sub').classList.add('sent');
